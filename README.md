@@ -1,14 +1,14 @@
 # Zero-Shot Voice Conversion with WavLM and kNN Retrieval
 
-**Training-free, any-to-any voice conversion that transfers a target speaker's voice while preserving the source utterance's linguistic content.**
-
-The pipeline extracts content representations from WavLM-Large, retrieves the nearest target-speaker frames with FAISS, and synthesizes the matched representation with a prematched HiFi-GAN vocoder. Target speakers are added by building a reference feature bank—no fine-tuning or speaker-specific model training is required.
-
 ![Python 3.10](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
 ![PyTorch 2.6.0](https://img.shields.io/badge/PyTorch-2.6.0-EE4C2C?logo=pytorch&logoColor=white)
 ![CUDA 12.4](https://img.shields.io/badge/CUDA-12.4-76B900?logo=nvidia&logoColor=white)
 ![FAISS 1.7.4](https://img.shields.io/badge/FAISS-1.7.4-0467DF)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
+**Training-free, any-to-any voice conversion that transfers a target speaker's voice while preserving the source utterance's linguistic content.**
+
+The pipeline extracts content representations from WavLM-Large, retrieves the nearest target-speaker frames with FAISS, and synthesizes the matched representation with a prematched HiFi-GAN vocoder. Target speakers are added by building a reference feature bank—no fine-tuning or speaker-specific model training is required.
 
 ## Highlights
 
