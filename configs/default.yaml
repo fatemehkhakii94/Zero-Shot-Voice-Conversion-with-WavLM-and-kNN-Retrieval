@@ -1,0 +1,37 @@
+# ── Data ──────────────────────────────────────────────────────────────────────
+data:
+  vctk_root: "/local/khakinaj/data/VCTK-Corpus"
+  features_dir: "results/features"
+  speakers: null
+  max_speakers: 30
+  audio_ext: "flac"
+
+# ── Audio ─────────────────────────────────────────────────────────────────────
+audio:
+  sample_rate: 16000
+  max_duration_sec: 10.0
+
+# ── WavLM ─────────────────────────────────────────────────────────────────────
+wavlm:
+  model_name: "microsoft/wavlm-large"
+  content_layer: 6
+  batch_size: 8
+  device: "cuda"
+
+# ── kNN Matching ──────────────────────────────────────────────────────────────
+knn:
+  k: 4
+  use_gpu: true
+
+# ── Vocoder ───────────────────────────────────────────────────────────────────
+vocoder:
+  repo_id: "bshall/knn-vc"
+  checkpoint: "hifigan/model.pt"
+  config: "hifigan/config.json"
+  device: "cuda"
+
+# ── Results ───────────────────────────────────────────────────────────────────
+results:
+  audio_dir: "results/audio"
+  metrics_dir: "results/metrics"
+  figures_dir: "results/figures"

@@ -1,0 +1,120 @@
+{
+  "summary": {
+    "avg_speaker_sim": 0.5618,
+    "avg_wer": 0.0333,
+    "avg_utmos_ovrl": 3.1757,
+    "avg_rtf": 0.2746
+  },
+  "pairs": [
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p226/p226_001_mic1.flac",
+      "target": "p225",
+      "output": "results/audio/p226_001_mic1_to_p225.wav",
+      "speaker_sim": 0.6788,
+      "wer": 0.0,
+      "reference": "please call stella.",
+      "hypothesis": "please call stella.",
+      "utmos_ovrl": 3.1553,
+      "rtf": 0.1144
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p226/p226_002_mic1.flac",
+      "target": "p227",
+      "output": "results/audio/p226_002_mic1_to_p227.wav",
+      "speaker_sim": 0.5027,
+      "wer": 0.0,
+      "reference": "ask her to bring these things with her from the store.",
+      "hypothesis": "ask her to bring these things with her from the store.",
+      "utmos_ovrl": 3.3225,
+      "rtf": 0.2008
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p227/p227_001_mic1.flac",
+      "target": "p228",
+      "output": "results/audio/p227_001_mic1_to_p228.wav",
+      "speaker_sim": 0.5767,
+      "wer": 0.0,
+      "reference": "please call stella.",
+      "hypothesis": "please call stella.",
+      "utmos_ovrl": 3.0909,
+      "rtf": 0.2618
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p227/p227_002_mic1.flac",
+      "target": "p225",
+      "output": "results/audio/p227_002_mic1_to_p225.wav",
+      "speaker_sim": 0.5879,
+      "wer": 0.0,
+      "reference": "ask her to bring these things with her from the store.",
+      "hypothesis": "ask her to bring these things with her from the store.",
+      "utmos_ovrl": 3.1338,
+      "rtf": 0.2332
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p228/p228_001_mic1.flac",
+      "target": "p226",
+      "output": "results/audio/p228_001_mic1_to_p226.wav",
+      "speaker_sim": 0.5846,
+      "wer": 0.0,
+      "reference": "please call stella.",
+      "hypothesis": "please call stella.",
+      "utmos_ovrl": 3.0176,
+      "rtf": 0.367
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p228/p228_002_mic1.flac",
+      "target": "p229",
+      "output": "results/audio/p228_002_mic1_to_p229.wav",
+      "speaker_sim": 0.5522,
+      "wer": 0.0,
+      "reference": "ask her to bring these things with her from the store.",
+      "hypothesis": "ask her to bring these things with her from the store.",
+      "utmos_ovrl": 3.3338,
+      "rtf": 0.2171
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p229/p229_001_mic1.flac",
+      "target": "p230",
+      "output": "results/audio/p229_001_mic1_to_p230.wav",
+      "speaker_sim": 0.5424,
+      "wer": 0.0,
+      "reference": "please call stella.",
+      "hypothesis": "please call stella.",
+      "utmos_ovrl": 2.9414,
+      "rtf": 0.4686
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p229/p229_002_mic1.flac",
+      "target": "p226",
+      "output": "results/audio/p229_002_mic1_to_p226.wav",
+      "speaker_sim": 0.4356,
+      "wer": 0.0,
+      "reference": "ask her to bring these things with her from the store.",
+      "hypothesis": "ask her to bring these things with her from the store.",
+      "utmos_ovrl": 3.4086,
+      "rtf": 0.259
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p230/p230_001_mic1.flac",
+      "target": "p231",
+      "output": "results/audio/p230_001_mic1_to_p231.wav",
+      "speaker_sim": 0.5808,
+      "wer": 0.3333,
+      "reference": "please call stella.",
+      "hypothesis": "please call stower.",
+      "utmos_ovrl": 3.1513,
+      "rtf": 0.4051
+    },
+    {
+      "source": "/local/khakinaj/data/VCTK-Corpus/wav48_silence_trimmed/p230/p230_002_mic1.flac",
+      "target": "p225",
+      "output": "results/audio/p230_002_mic1_to_p225.wav",
+      "speaker_sim": 0.5763,
+      "wer": 0.0,
+      "reference": "ask her to bring these things with her from the store.",
+      "hypothesis": "ask her to bring these things with her from the store.",
+      "utmos_ovrl": 3.2017,
+      "rtf": 0.2193
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Data
+/local/
+*.flac
+*.wav
+
+# Extracted features (large numpy files)
+results/features/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Torch hub cache
+*.pt
+*.bin
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep these
+!results/audio/*.wav
+!results/metrics/*.json
