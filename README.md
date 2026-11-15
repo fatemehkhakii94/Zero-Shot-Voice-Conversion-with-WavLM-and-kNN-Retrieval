@@ -1,255 +1,167 @@
 # Zero-Shot Voice Conversion with WavLM and kNN Retrieval
 
-![Python 3.10](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
-![PyTorch 2.6.0](https://img.shields.io/badge/PyTorch-2.6.0-EE4C2C?logo=pytorch&logoColor=white)
-![CUDA 12.4](https://img.shields.io/badge/CUDA-12.4-76B900?logo=nvidia&logoColor=white)
-![FAISS 1.7.4](https://img.shields.io/badge/FAISS-1.7.4-0467DF)
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+[![CI](https://github.com/fatemehkhakii94/Zero-Shot-Voice-Conversion-with-WavLM-and-kNN-Retrieval/actions/workflows/ci.yml/badge.svg)](https://github.com/fatemehkhakii94/Zero-Shot-Voice-Conversion-with-WavLM-and-kNN-Retrieval/actions/workflows/ci.yml)
+[![Python 3.10–3.13](https://img.shields.io/badge/Python-3.10%E2%80%933.13-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Training-free, any-to-any voice conversion that transfers a target speaker's voice while preserving the source utterance's linguistic content.**
+A reproducible, training-free voice-conversion toolkit. It preserves the source utterance's linguistic content while transferring the voice characteristics of a target speaker represented by a small reference bank. Adding a speaker requires no fine-tuning and no speaker-specific model training.
 
-The pipeline extracts content representations from WavLM-Large, retrieves the nearest target-speaker frames with FAISS, and synthesizes the matched representation with a prematched HiFi-GAN vocoder. Target speakers are added by building a reference feature bank—no fine-tuning or speaker-specific model training is required.
+The project is an engineering-focused reimplementation around the released [`bshall/knn-vc`](https://github.com/bshall/knn-vc) WavLM and prematched HiFi-GAN checkpoints. It adds a typed package, one coherent CLI, exact memory-bounded retrieval, portable feature banks, checkpoint verification, leakage-safe evaluation, tests, and CI.
 
-## Highlights
-
-- **Zero-shot conversion:** adapt to a target speaker from reference recordings without gradient-based training.
-- **Self-supervised speech features:** extract 1,024-dimensional content representations from WavLM-Large layer 6.
-- **Frame-level voice transfer:** retrieve target frames with exact FAISS L2 search and average the four nearest neighbors.
-- **Neural waveform synthesis:** generate 16 kHz audio with the prematched HiFi-GAN model from `bshall/knn-vc`.
-- **Reusable speaker banks:** cache per-utterance target features as NumPy arrays for repeated conversion.
-- **End-to-end evaluation:** measure speaker similarity, content preservation, predicted speech quality, and conversion speed.
-- **Config-driven workflow:** control data, audio, feature extraction, retrieval, device, and output settings from one YAML file.
-
-## Pipeline
-
-```mermaid
-flowchart LR
-    A["Source audio"] --> B["Mono + resample<br/>16 kHz, max 10 s"]
-    B --> C["WavLM-Large<br/>layer 6 features"]
-
-    R["Target-speaker<br/>reference recordings"] --> S["WavLM-Large<br/>layer 6 features"]
-    S --> T["Cached target<br/>feature bank"]
-
-    C --> K["FAISS IndexFlatL2<br/>k = 4"]
-    T --> K
-    K --> M["Mean of retrieved<br/>target frames"]
-    M --> V["Prematched<br/>HiFi-GAN"]
-    V --> O["Converted<br/>16 kHz waveform"]
-```
-
-WavLM provides the frame-level representation used for matching. For every source frame, FAISS finds the four closest frames in the target speaker's feature bank. Their mean is passed to the vocoder, preserving the source sequence length while replacing its acoustic representation with target-speaker frames.
-
-## Audio Samples
-
-| Source | Target | Speaker similarity | WER | DNSMOS OVRL | Converted audio |
-|---|---:|---:|---:|---:|---|
-| `p226_001_mic1` | `p225` | 0.6788 | 0.0000 | 3.1553 | [Listen](results/audio/p226_001_mic1_to_p225.wav) |
-| `p228_001_mic1` | `p226` | 0.5846 | 0.0000 | 3.0176 | [Listen](results/audio/p228_001_mic1_to_p226.wav) |
-| `p226_002_mic1` | `p227` | 0.5027 | 0.0000 | 3.3225 | [Listen](results/audio/p226_002_mic1_to_p227.wav) |
+> Use voice conversion only with informed consent. Do not use this software for impersonation, fraud, harassment, or deceptive media.
 
 ## Results
 
-The checked-in evaluation covers 10 any-to-any conversions across 7 speakers from VCTK 0.92. Results were produced on an NVIDIA GeForce RTX 3060 12 GB using the pairs in [`eval_pairs.txt`](eval_pairs.txt).
+The checked benchmark uses 40 held-out, cross-gender conversions from eight VCTK 0.92 speakers. Target-bank audio, speaker-similarity references, and source utterances are mutually disjoint.
 
-### Summary
+| Metric | Source | Converted | Change |
+|---|---:|---:|---:|
+| ECAPA cosine similarity to target | 0.082 | **0.641** | **+0.559** |
+| Whisper corpus WER | **4.17%** | 9.06% | +4.89 pp |
+| DNSMOS overall | **3.265** | 3.250 | -0.015 |
+| Median inference RTF | — | **0.0179** | about 56× real time¹ |
 
-| Metric | Mean | Direction | Measurement |
-|---|---:|:-:|---|
-| ECAPA-TDNN speaker similarity | **0.5618** | ↑ | Cosine similarity between converted audio and a target-speaker reference |
-| Whisper `base.en` WER | **0.0333** | ↓ | Word error rate between source and converted-audio transcripts |
-| DNSMOS OVRL | **3.1757** | ↑ | Predicted overall speech quality |
-| Real-time factor | **0.2746** | ↓ | Conversion time divided by source-audio duration |
+¹ Model inference only, measured on an NVIDIA RTX 2070 Super after one warm-up, with three measured runs per utterance. This small benchmark demonstrates the implementation; it is not a claim of state-of-the-art performance.
 
-An average real-time factor of `0.2746` corresponds to approximately **3.6 seconds of audio processed per second of conversion time**.
+- [Full protocol and interpretation](benchmarks/vctk-0.92/README.md)
+- [Machine-readable report](benchmarks/vctk-0.92/report.json)
+- [Source, target, and converted listening example](examples/audio/p243-to-p244/README.md)
 
-<details>
-<summary><strong>Per-pair results</strong></summary>
+## How it works
 
-| Source | Target | Speaker similarity | WER | DNSMOS OVRL | RTF | Audio |
-|---|---:|---:|---:|---:|---:|---|
-| `p226_001_mic1` | `p225` | 0.6788 | 0.0000 | 3.1553 | 0.1144 | [WAV](results/audio/p226_001_mic1_to_p225.wav) |
-| `p226_002_mic1` | `p227` | 0.5027 | 0.0000 | 3.3225 | 0.2008 | [WAV](results/audio/p226_002_mic1_to_p227.wav) |
-| `p227_001_mic1` | `p228` | 0.5767 | 0.0000 | 3.0909 | 0.2618 | [WAV](results/audio/p227_001_mic1_to_p228.wav) |
-| `p227_002_mic1` | `p225` | 0.5879 | 0.0000 | 3.1338 | 0.2332 | [WAV](results/audio/p227_002_mic1_to_p225.wav) |
-| `p228_001_mic1` | `p226` | 0.5846 | 0.0000 | 3.0176 | 0.3670 | [WAV](results/audio/p228_001_mic1_to_p226.wav) |
-| `p228_002_mic1` | `p229` | 0.5522 | 0.0000 | 3.3338 | 0.2171 | [WAV](results/audio/p228_002_mic1_to_p229.wav) |
-| `p229_001_mic1` | `p230` | 0.5424 | 0.0000 | 2.9414 | 0.4686 | [WAV](results/audio/p229_001_mic1_to_p230.wav) |
-| `p229_002_mic1` | `p226` | 0.4356 | 0.0000 | 3.4086 | 0.2590 | [WAV](results/audio/p229_002_mic1_to_p226.wav) |
-| `p230_001_mic1` | `p231` | 0.5808 | 0.3333 | 3.1513 | 0.4051 | [WAV](results/audio/p230_001_mic1_to_p231.wav) |
-| `p230_002_mic1` | `p225` | 0.5763 | 0.0000 | 3.2017 | 0.2193 | [WAV](results/audio/p230_002_mic1_to_p225.wav) |
+```mermaid
+flowchart LR
+    S[Source audio] --> SP[Mono, 16 kHz]
+    SP --> SF[WavLM-Large<br/>layer 6]
 
-</details>
+    R[Target reference audio] --> RP[VAD, mono, 16 kHz]
+    RP --> RF[WavLM-Large<br/>layer 6]
+    RF --> B[Versioned feature bank]
 
-The complete machine-readable results, including source and converted transcripts, are available in [`results/metrics/eval_results.json`](results/metrics/eval_results.json). See [`BENCHMARK.md`](BENCHMARK.md) for the compact benchmark report.
+    SF --> K[Exact chunked kNN<br/>cosine, k=4]
+    B --> K
+    K --> V[Prematched HiFi-GAN]
+    V --> O[Converted waveform]
+```
+
+For each source frame, the matcher retrieves the four closest target-speaker frames and averages them. Chunking keeps the search exact without allocating the full query-by-reference distance matrix. The released prematched vocoder then synthesizes the retrieved feature sequence at 16 kHz.
+
+## What is included
+
+- Installable `src/` package and a single `knnvc` command.
+- Strict, validated YAML configuration with portable relative paths.
+- CUDA/CPU device selection and Windows-compatible preprocessing without SoX.
+- Atomic, self-describing feature banks with source and feature checksums.
+- SHA-256 verification of the expected WavLM and vocoder checkpoints.
+- Exact cosine kNN by default, with an explicit L2 ablation option.
+- Conversion sidecars containing configuration, timing, device, and model provenance.
+- Versioned evaluation manifests that reject target-reference leakage.
+- Ground-truth WER, ECAPA speaker similarity, DNSMOS, confidence intervals, and repeated timing.
+- Unit tests, strict type checking, linting, coverage enforcement, and GitHub Actions CI.
 
 ## Installation
 
-The checked-in configuration targets CUDA. The project environment used Python 3.10, PyTorch 2.6.0 with CUDA 12.4, and FAISS-GPU 1.7.4.
+The reproducible environment uses Python 3.11, PyTorch 2.6, and CUDA 12.4:
 
 ```bash
-conda create -n knn-vc python=3.10 -y
-conda activate knn-vc
-
-pip install torch==2.6.0 torchaudio==2.6.0 \
-  --index-url https://download.pytorch.org/whl/cu124
-conda install -c pytorch -c nvidia faiss-gpu=1.7.4 -y
-pip install -r requirements.txt \
-  --extra-index-url https://download.pytorch.org/whl/cu124
+conda env create -f environment.yml
+conda activate knnvc
 ```
 
-Expose the repository root on `PYTHONPATH` before running the scripts:
+For a lean, platform-specific install, install the appropriate PyTorch and torchaudio builds first, then install the package:
 
 ```bash
-# Linux / macOS
-export PYTHONPATH="$(pwd)"
+python -m pip install -e .
 ```
 
-```powershell
-# Windows PowerShell
-$env:PYTHONPATH = (Get-Location).Path
-```
+Install the evaluation stack with `python -m pip install -e ".[evaluation]"`. The first model-backed command downloads the upstream checkpoints to the normal user caches. They are never stored in this repository.
 
-The first feature-extraction or conversion run loads the upstream `bshall/knn-vc` model through Torch Hub. Evaluation additionally loads the SpeechBrain ECAPA-TDNN and Whisper `base.en` checkpoints.
+## Quick start
 
-## Data Preparation
-
-1. Obtain VCTK 0.92.
-2. Set `data.vctk_root` in [`configs/default.yaml`](configs/default.yaml) to the directory containing `wav48_silence_trimmed/`.
-3. Use the mic1 recordings for the reproduced setup. If the corpus copy contains mic2 files, remove them from that working copy before feature extraction:
+Build a reusable target-speaker bank from clean reference recordings:
 
 ```bash
-find /path/to/VCTK-Corpus/wav48_silence_trimmed \
-  -type f -name "*_mic2.flac" -delete
+knnvc bank build \
+  --id target-speaker \
+  --reference path/to/reference-01.wav path/to/reference-02.wav
 ```
 
-The expected layout is:
+Convert a source utterance:
+
+```bash
+knnvc convert \
+  --source path/to/source.wav \
+  --target-bank target-speaker
+```
+
+The default output is `artifacts/audio/source--to--target-speaker.wav`, accompanied by a JSON provenance sidecar. Existing files and banks are never replaced unless `--overwrite` is explicit.
+
+Useful commands:
 
 ```text
-VCTK-Corpus/
-└── wav48_silence_trimmed/
-    ├── p225/
-    │   ├── p225_001_mic1.flac
-    │   └── ...
-    ├── p226/
-    └── ...
+knnvc bank build             Build one target feature bank
+knnvc bank build-manifest    Build all banks in an evaluation manifest
+knnvc bank list              Inspect available banks and their provenance
+knnvc convert                Convert one source recording
+knnvc data prepare-vctk      Create a deterministic, leakage-safe VCTK manifest
+knnvc evaluate               Run the complete evaluation protocol
 ```
 
-For batch evaluation, replace the machine-specific source paths in [`eval_pairs.txt`](eval_pairs.txt). Each non-comment line contains a source file followed by a target speaker ID:
+All commands accept `--config`; defaults live in [`configs/default.yaml`](configs/default.yaml).
+
+## Reproducing the benchmark
+
+1. Download and extract [VCTK Corpus 0.92](https://doi.org/10.7488/ds/2645). The official archive MD5 is `8a6ba2946b36fcbef0212cad601f4bfa`.
+2. Build the eight target banks from the checked manifest.
+3. Run the evaluation into ignored `artifacts/` output so the checked report stays unchanged.
+
+```bash
+knnvc bank build-manifest \
+  --manifest data/manifests/vctk-0.92-evaluation.yaml \
+  --dataset-root /path/to/VCTK-Corpus-0.92
+
+knnvc evaluate \
+  --manifest data/manifests/vctk-0.92-evaluation.yaml \
+  --dataset-root /path/to/VCTK-Corpus-0.92 \
+  --output artifacts/reports/vctk-local.json
+```
+
+See the [benchmark documentation](benchmarks/vctk-0.92/README.md) for the exact cohort, split, metrics, checkpoint fingerprints, and canonical regeneration command.
+
+## Development
+
+```bash
+ruff format --check .
+ruff check .
+mypy
+pytest --cov=knnvc --cov-report=term-missing
+```
+
+The test suite uses lightweight deterministic backends; it does not download model weights. Real WavLM, vocoder, Whisper, ECAPA, and DNSMOS integrations were exercised separately to produce the checked benchmark.
+
+## Repository layout
 
 ```text
-/absolute/path/to/p226/p226_001_mic1.flac p225
+configs/                 Runtime configuration
+data/manifests/          Versioned dataset splits; no raw datasets
+src/knnvc/               Package, CLI, conversion, matching, and evaluation
+tests/                   Deterministic unit and workflow tests
+benchmarks/vctk-0.92/    Protocol and machine-readable benchmark evidence
+examples/audio/          One curated listening example
+.github/workflows/       Continuous integration
 ```
 
-## Quick Start
+Generated banks, conversions, caches, datasets, and model weights are intentionally ignored. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for upstream model and dataset attribution.
 
-### 1. Build target-speaker feature banks
+## Limitations
 
-```bash
-python scripts/extract_features.py --config configs/default.yaml
-```
-
-The extractor writes one `.npy` file per reference utterance under `results/features/<speaker_id>/`. Existing files are skipped, so interrupted extraction can be resumed with the same command.
-
-### 2. Convert one utterance
-
-```bash
-python scripts/convert.py \
-  --config configs/default.yaml \
-  --source /path/to/source.flac \
-  --target p225 \
-  --output results/audio/converted.wav
-```
-
-The target speaker ID must have a feature bank created by the previous step.
-
-### 3. Run the evaluation suite
-
-```bash
-python scripts/evaluate.py \
-  --config configs/default.yaml \
-  --pairs eval_pairs.txt \
-  --output results/metrics/eval_results.json
-```
-
-This command converts every pair and records per-pair plus mean speaker similarity, WER, DNSMOS OVRL, and real-time factor.
-
-## Training and Adaptation
-
-This project uses retrieval-based adaptation rather than a task-specific training loop. Adding a target speaker consists of placing that speaker's VCTK-style reference recordings under the configured corpus root and running `scripts/extract_features.py`. The shared WavLM and HiFi-GAN weights remain unchanged.
-
-To extract only selected target speakers, set `data.speakers` in `configs/default.yaml`:
-
-```yaml
-data:
-  speakers: [p225, p226, p227]
-```
-
-## Configuration
-
-Runtime behavior is controlled by [`configs/default.yaml`](configs/default.yaml).
-
-| Key | Checked-in value | Purpose |
-|---|---:|---|
-| `data.vctk_root` | local path | VCTK 0.92 corpus root |
-| `data.features_dir` | `results/features` | Cached speaker feature banks |
-| `data.speakers` | `null` | Optional explicit speaker-ID list |
-| `data.max_speakers` | `30` | Maximum speakers when no list is supplied |
-| `data.audio_ext` | `flac` | Reference-audio extension |
-| `audio.sample_rate` | `16000` | Model and output sample rate |
-| `audio.max_duration_sec` | `10.0` | Maximum input duration processed per file |
-| `wavlm.content_layer` | `6` | WavLM layer used for matching |
-| `wavlm.device` | `cuda` | Feature-extractor device |
-| `knn.k` | `4` | Nearest target frames averaged per source frame |
-| `knn.use_gpu` | `true` | Use a FAISS GPU index when available |
-| `vocoder.device` | `cuda` | HiFi-GAN inference device |
-| `results.audio_dir` | `results/audio` | Batch-conversion audio output |
-
-## Repository Structure
-
-```text
-speech_conversion/
-├── configs/
-│   └── default.yaml              # data, audio, model, and retrieval settings
-├── scripts/
-│   ├── extract_features.py       # build cached target-speaker feature banks
-│   ├── convert.py                # convert one source/target pair
-│   └── evaluate.py               # batch conversion and evaluation
-├── src/
-│   ├── audio/
-│   │   ├── preprocessing.py      # load, resample, mono conversion, clipping
-│   │   └── features.py           # WavLM layer-feature extraction
-│   ├── models/
-│   │   ├── knn_matcher.py        # exact FAISS L2 retrieval
-│   │   ├── model_loader.py       # shared Torch Hub model loading
-│   │   └── vocoder.py            # prematched HiFi-GAN wrapper
-│   ├── inference/
-│   │   └── convert.py            # reusable end-to-end converter
-│   ├── evaluation/
-│   │   ├── speaker_similarity.py # ECAPA-TDNN cosine similarity
-│   │   ├── wer.py                # Whisper transcription and WER
-│   │   └── utmos.py              # DNSMOS quality scoring
-│   └── config.py                 # YAML configuration loader
-├── results/
-│   ├── audio/                    # 10 checked-in converted WAV files
-│   └── metrics/
-│       └── eval_results.json     # per-pair and aggregate results
-├── BENCHMARK.md                  # evaluation protocol and result tables
-├── PROJECT_STATUS.md             # implementation status and design decisions
-├── eval_pairs.txt                # source/target evaluation manifest
-├── requirements.txt
-└── LICENSE
-```
-
-## Notes
-
-- Audio is converted to mono, resampled to 16 kHz, and clipped to the first 10 seconds.
-- The quality scorer is DNSMOS from `speechmos`; `utmos_ovrl` is retained only as the legacy field name in the checked-in JSON.
-- The reported metrics describe the included 10-pair VCTK evaluation set.
-
-## Acknowledgments
-
-This implementation follows the retrieval-based approach introduced by [kNN-VC (Baas et al., Interspeech 2023)](https://arxiv.org/abs/2305.18975) and loads the authors' WavLM/HiFi-GAN model through Torch Hub.
+- This is retrieval-based conversion, not generative voice cloning; quality depends heavily on target-bank coverage and recording conditions.
+- The prematched vocoder is compatible with WavLM-Large layer 6 at 16 kHz, so those settings are deliberately enforced.
+- Long recordings are processed as a single utterance and can require substantial GPU memory.
+- Objective metrics are proxies. Human listening tests remain necessary for perceptual claims.
+- The checked benchmark is intentionally compact and does not compare against other systems.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+Project code is released under the [MIT License](LICENSE). Model weights and dataset excerpts retain their respective upstream terms.

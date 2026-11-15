@@ -1,0 +1,94 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "knnvc-toolkit"
+version = "0.1.0"
+description = "A reproducible toolkit for training-free voice conversion with WavLM and k-nearest-neighbor retrieval."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = { file = "LICENSE" }
+authors = [{ name = "Fatemeh Khaki" }]
+keywords = ["voice-conversion", "wavlm", "speech", "knn", "pytorch"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = [
+  "numpy>=1.26,<2",
+  "PyYAML>=6.0,<7",
+  "torch>=2.0,<3",
+  "torchaudio>=2.0,<3",
+  "tqdm>=4.66,<5",
+]
+
+[project.optional-dependencies]
+evaluation = [
+  "librosa>=0.10,<1",
+  "openai-whisper>=20231117",
+  "onnxruntime>=1.17",
+  "requests>=2.31,<3",
+  "speechbrain>=1.0,<2",
+  "torchmetrics>=1.6,<2",
+]
+dev = [
+  "mypy>=1.13,<2",
+  "pytest>=8.3,<9",
+  "pytest-cov>=6,<7",
+  "ruff>=0.8,<1",
+  "types-PyYAML>=6.0",
+  "types-tqdm>=4.66",
+]
+
+[project.scripts]
+knnvc = "knnvc.cli:main"
+
+[project.urls]
+Repository = "https://github.com/fatemehkhakii94/Zero-Shot-Voice-Conversion-with-WavLM-and-kNN-Retrieval"
+Issues = "https://github.com/fatemehkhakii94/Zero-Shot-Voice-Conversion-with-WavLM-and-kNN-Retrieval/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/knnvc"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["knnvc"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+markers = [
+  "integration: tests that load external model checkpoints",
+  "gpu: tests that require a CUDA-capable GPU",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["knnvc"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unreachable = true
+packages = ["knnvc"]
+
+[[tool.mypy.overrides]]
+module = ["speechbrain.*", "torchaudio.*", "torchmetrics.*", "whisper.*"]
+ignore_missing_imports = true

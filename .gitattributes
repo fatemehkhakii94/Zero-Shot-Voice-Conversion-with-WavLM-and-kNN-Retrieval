@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+*.wav binary
+*.flac binary
+*.npy binary
+*.npz binary
+*.pt binary
+*.pth binary
+*.ckpt binary
+*.onnx binary

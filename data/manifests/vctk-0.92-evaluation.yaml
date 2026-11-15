@@ -1,0 +1,516 @@
+format_version: 1
+dataset: VCTK 0.92
+banks:
+- bank_id: p225
+  references:
+  - wav48_silence_trimmed/p225/p225_009_mic1.flac
+  - wav48_silence_trimmed/p225/p225_010_mic1.flac
+  - wav48_silence_trimmed/p225/p225_011_mic1.flac
+  - wav48_silence_trimmed/p225/p225_012_mic1.flac
+  - wav48_silence_trimmed/p225/p225_013_mic1.flac
+  - wav48_silence_trimmed/p225/p225_014_mic1.flac
+  - wav48_silence_trimmed/p225/p225_016_mic1.flac
+  - wav48_silence_trimmed/p225/p225_017_mic1.flac
+  - wav48_silence_trimmed/p225/p225_018_mic1.flac
+  - wav48_silence_trimmed/p225/p225_019_mic1.flac
+  - wav48_silence_trimmed/p225/p225_020_mic1.flac
+  - wav48_silence_trimmed/p225/p225_021_mic1.flac
+  - wav48_silence_trimmed/p225/p225_022_mic1.flac
+  - wav48_silence_trimmed/p225/p225_023_mic1.flac
+  - wav48_silence_trimmed/p225/p225_024_mic1.flac
+  - wav48_silence_trimmed/p225/p225_025_mic1.flac
+  - wav48_silence_trimmed/p225/p225_026_mic1.flac
+  - wav48_silence_trimmed/p225/p225_027_mic1.flac
+  - wav48_silence_trimmed/p225/p225_028_mic1.flac
+  - wav48_silence_trimmed/p225/p225_029_mic1.flac
+- bank_id: p226
+  references:
+  - wav48_silence_trimmed/p226/p226_009_mic1.flac
+  - wav48_silence_trimmed/p226/p226_010_mic1.flac
+  - wav48_silence_trimmed/p226/p226_011_mic1.flac
+  - wav48_silence_trimmed/p226/p226_012_mic1.flac
+  - wav48_silence_trimmed/p226/p226_013_mic1.flac
+  - wav48_silence_trimmed/p226/p226_014_mic1.flac
+  - wav48_silence_trimmed/p226/p226_015_mic1.flac
+  - wav48_silence_trimmed/p226/p226_016_mic1.flac
+  - wav48_silence_trimmed/p226/p226_017_mic1.flac
+  - wav48_silence_trimmed/p226/p226_018_mic1.flac
+  - wav48_silence_trimmed/p226/p226_019_mic1.flac
+  - wav48_silence_trimmed/p226/p226_020_mic1.flac
+  - wav48_silence_trimmed/p226/p226_021_mic1.flac
+  - wav48_silence_trimmed/p226/p226_022_mic1.flac
+  - wav48_silence_trimmed/p226/p226_023_mic1.flac
+  - wav48_silence_trimmed/p226/p226_024_mic1.flac
+  - wav48_silence_trimmed/p226/p226_025_mic1.flac
+  - wav48_silence_trimmed/p226/p226_026_mic1.flac
+  - wav48_silence_trimmed/p226/p226_027_mic1.flac
+  - wav48_silence_trimmed/p226/p226_028_mic1.flac
+- bank_id: p234
+  references:
+  - wav48_silence_trimmed/p234/p234_009_mic1.flac
+  - wav48_silence_trimmed/p234/p234_010_mic1.flac
+  - wav48_silence_trimmed/p234/p234_012_mic1.flac
+  - wav48_silence_trimmed/p234/p234_013_mic1.flac
+  - wav48_silence_trimmed/p234/p234_014_mic1.flac
+  - wav48_silence_trimmed/p234/p234_015_mic1.flac
+  - wav48_silence_trimmed/p234/p234_016_mic1.flac
+  - wav48_silence_trimmed/p234/p234_017_mic1.flac
+  - wav48_silence_trimmed/p234/p234_018_mic1.flac
+  - wav48_silence_trimmed/p234/p234_019_mic1.flac
+  - wav48_silence_trimmed/p234/p234_020_mic1.flac
+  - wav48_silence_trimmed/p234/p234_021_mic1.flac
+  - wav48_silence_trimmed/p234/p234_022_mic1.flac
+  - wav48_silence_trimmed/p234/p234_023_mic1.flac
+  - wav48_silence_trimmed/p234/p234_024_mic1.flac
+  - wav48_silence_trimmed/p234/p234_025_mic1.flac
+  - wav48_silence_trimmed/p234/p234_026_mic1.flac
+  - wav48_silence_trimmed/p234/p234_027_mic1.flac
+  - wav48_silence_trimmed/p234/p234_028_mic1.flac
+  - wav48_silence_trimmed/p234/p234_029_mic1.flac
+- bank_id: p237
+  references:
+  - wav48_silence_trimmed/p237/p237_009_mic1.flac
+  - wav48_silence_trimmed/p237/p237_010_mic1.flac
+  - wav48_silence_trimmed/p237/p237_011_mic1.flac
+  - wav48_silence_trimmed/p237/p237_012_mic1.flac
+  - wav48_silence_trimmed/p237/p237_013_mic1.flac
+  - wav48_silence_trimmed/p237/p237_014_mic1.flac
+  - wav48_silence_trimmed/p237/p237_015_mic1.flac
+  - wav48_silence_trimmed/p237/p237_016_mic1.flac
+  - wav48_silence_trimmed/p237/p237_017_mic1.flac
+  - wav48_silence_trimmed/p237/p237_018_mic1.flac
+  - wav48_silence_trimmed/p237/p237_019_mic1.flac
+  - wav48_silence_trimmed/p237/p237_020_mic1.flac
+  - wav48_silence_trimmed/p237/p237_021_mic1.flac
+  - wav48_silence_trimmed/p237/p237_023_mic1.flac
+  - wav48_silence_trimmed/p237/p237_024_mic1.flac
+  - wav48_silence_trimmed/p237/p237_025_mic1.flac
+  - wav48_silence_trimmed/p237/p237_026_mic1.flac
+  - wav48_silence_trimmed/p237/p237_027_mic1.flac
+  - wav48_silence_trimmed/p237/p237_028_mic1.flac
+  - wav48_silence_trimmed/p237/p237_029_mic1.flac
+- bank_id: p238
+  references:
+  - wav48_silence_trimmed/p238/p238_009_mic1.flac
+  - wav48_silence_trimmed/p238/p238_010_mic1.flac
+  - wav48_silence_trimmed/p238/p238_011_mic1.flac
+  - wav48_silence_trimmed/p238/p238_012_mic1.flac
+  - wav48_silence_trimmed/p238/p238_013_mic1.flac
+  - wav48_silence_trimmed/p238/p238_014_mic1.flac
+  - wav48_silence_trimmed/p238/p238_015_mic1.flac
+  - wav48_silence_trimmed/p238/p238_016_mic1.flac
+  - wav48_silence_trimmed/p238/p238_017_mic1.flac
+  - wav48_silence_trimmed/p238/p238_018_mic1.flac
+  - wav48_silence_trimmed/p238/p238_019_mic1.flac
+  - wav48_silence_trimmed/p238/p238_020_mic1.flac
+  - wav48_silence_trimmed/p238/p238_021_mic1.flac
+  - wav48_silence_trimmed/p238/p238_022_mic1.flac
+  - wav48_silence_trimmed/p238/p238_023_mic1.flac
+  - wav48_silence_trimmed/p238/p238_024_mic1.flac
+  - wav48_silence_trimmed/p238/p238_025_mic1.flac
+  - wav48_silence_trimmed/p238/p238_026_mic1.flac
+  - wav48_silence_trimmed/p238/p238_027_mic1.flac
+  - wav48_silence_trimmed/p238/p238_028_mic1.flac
+- bank_id: p243
+  references:
+  - wav48_silence_trimmed/p243/p243_009_mic1.flac
+  - wav48_silence_trimmed/p243/p243_010_mic1.flac
+  - wav48_silence_trimmed/p243/p243_011_mic1.flac
+  - wav48_silence_trimmed/p243/p243_012_mic1.flac
+  - wav48_silence_trimmed/p243/p243_013_mic1.flac
+  - wav48_silence_trimmed/p243/p243_014_mic1.flac
+  - wav48_silence_trimmed/p243/p243_015_mic1.flac
+  - wav48_silence_trimmed/p243/p243_016_mic1.flac
+  - wav48_silence_trimmed/p243/p243_018_mic1.flac
+  - wav48_silence_trimmed/p243/p243_019_mic1.flac
+  - wav48_silence_trimmed/p243/p243_020_mic1.flac
+  - wav48_silence_trimmed/p243/p243_021_mic1.flac
+  - wav48_silence_trimmed/p243/p243_022_mic1.flac
+  - wav48_silence_trimmed/p243/p243_023_mic1.flac
+  - wav48_silence_trimmed/p243/p243_024_mic1.flac
+  - wav48_silence_trimmed/p243/p243_025_mic1.flac
+  - wav48_silence_trimmed/p243/p243_026_mic1.flac
+  - wav48_silence_trimmed/p243/p243_027_mic1.flac
+  - wav48_silence_trimmed/p243/p243_028_mic1.flac
+  - wav48_silence_trimmed/p243/p243_029_mic1.flac
+- bank_id: p244
+  references:
+  - wav48_silence_trimmed/p244/p244_009_mic1.flac
+  - wav48_silence_trimmed/p244/p244_010_mic1.flac
+  - wav48_silence_trimmed/p244/p244_011_mic1.flac
+  - wav48_silence_trimmed/p244/p244_012_mic1.flac
+  - wav48_silence_trimmed/p244/p244_013_mic1.flac
+  - wav48_silence_trimmed/p244/p244_014_mic1.flac
+  - wav48_silence_trimmed/p244/p244_015_mic1.flac
+  - wav48_silence_trimmed/p244/p244_016_mic1.flac
+  - wav48_silence_trimmed/p244/p244_017_mic1.flac
+  - wav48_silence_trimmed/p244/p244_018_mic1.flac
+  - wav48_silence_trimmed/p244/p244_019_mic1.flac
+  - wav48_silence_trimmed/p244/p244_020_mic1.flac
+  - wav48_silence_trimmed/p244/p244_022_mic1.flac
+  - wav48_silence_trimmed/p244/p244_023_mic1.flac
+  - wav48_silence_trimmed/p244/p244_024_mic1.flac
+  - wav48_silence_trimmed/p244/p244_025_mic1.flac
+  - wav48_silence_trimmed/p244/p244_026_mic1.flac
+  - wav48_silence_trimmed/p244/p244_027_mic1.flac
+  - wav48_silence_trimmed/p244/p244_028_mic1.flac
+  - wav48_silence_trimmed/p244/p244_029_mic1.flac
+- bank_id: p245
+  references:
+  - wav48_silence_trimmed/p245/p245_009_mic1.flac
+  - wav48_silence_trimmed/p245/p245_010_mic1.flac
+  - wav48_silence_trimmed/p245/p245_011_mic1.flac
+  - wav48_silence_trimmed/p245/p245_012_mic1.flac
+  - wav48_silence_trimmed/p245/p245_013_mic1.flac
+  - wav48_silence_trimmed/p245/p245_014_mic1.flac
+  - wav48_silence_trimmed/p245/p245_015_mic1.flac
+  - wav48_silence_trimmed/p245/p245_016_mic1.flac
+  - wav48_silence_trimmed/p245/p245_017_mic1.flac
+  - wav48_silence_trimmed/p245/p245_018_mic1.flac
+  - wav48_silence_trimmed/p245/p245_019_mic1.flac
+  - wav48_silence_trimmed/p245/p245_020_mic1.flac
+  - wav48_silence_trimmed/p245/p245_021_mic1.flac
+  - wav48_silence_trimmed/p245/p245_022_mic1.flac
+  - wav48_silence_trimmed/p245/p245_023_mic1.flac
+  - wav48_silence_trimmed/p245/p245_024_mic1.flac
+  - wav48_silence_trimmed/p245/p245_025_mic1.flac
+  - wav48_silence_trimmed/p245/p245_026_mic1.flac
+  - wav48_silence_trimmed/p245/p245_027_mic1.flac
+  - wav48_silence_trimmed/p245/p245_028_mic1.flac
+pairs:
+- pair_id: p225_001_mic1--to--p226
+  source: wav48_silence_trimmed/p225/p225_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p226
+  target_references:
+  - wav48_silence_trimmed/p226/p226_006_mic1.flac
+  - wav48_silence_trimmed/p226/p226_007_mic1.flac
+  - wav48_silence_trimmed/p226/p226_008_mic1.flac
+- pair_id: p225_002_mic1--to--p226
+  source: wav48_silence_trimmed/p225/p225_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p226
+  target_references:
+  - wav48_silence_trimmed/p226/p226_006_mic1.flac
+  - wav48_silence_trimmed/p226/p226_007_mic1.flac
+  - wav48_silence_trimmed/p226/p226_008_mic1.flac
+- pair_id: p225_003_mic1--to--p226
+  source: wav48_silence_trimmed/p225/p225_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p226
+  target_references:
+  - wav48_silence_trimmed/p226/p226_006_mic1.flac
+  - wav48_silence_trimmed/p226/p226_007_mic1.flac
+  - wav48_silence_trimmed/p226/p226_008_mic1.flac
+- pair_id: p225_004_mic1--to--p226
+  source: wav48_silence_trimmed/p225/p225_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p226
+  target_references:
+  - wav48_silence_trimmed/p226/p226_006_mic1.flac
+  - wav48_silence_trimmed/p226/p226_007_mic1.flac
+  - wav48_silence_trimmed/p226/p226_008_mic1.flac
+- pair_id: p225_005_mic1--to--p226
+  source: wav48_silence_trimmed/p225/p225_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p226
+  target_references:
+  - wav48_silence_trimmed/p226/p226_006_mic1.flac
+  - wav48_silence_trimmed/p226/p226_007_mic1.flac
+  - wav48_silence_trimmed/p226/p226_008_mic1.flac
+- pair_id: p226_001_mic1--to--p234
+  source: wav48_silence_trimmed/p226/p226_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p234
+  target_references:
+  - wav48_silence_trimmed/p234/p234_006_mic1.flac
+  - wav48_silence_trimmed/p234/p234_007_mic1.flac
+  - wav48_silence_trimmed/p234/p234_008_mic1.flac
+- pair_id: p226_002_mic1--to--p234
+  source: wav48_silence_trimmed/p226/p226_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p234
+  target_references:
+  - wav48_silence_trimmed/p234/p234_006_mic1.flac
+  - wav48_silence_trimmed/p234/p234_007_mic1.flac
+  - wav48_silence_trimmed/p234/p234_008_mic1.flac
+- pair_id: p226_003_mic1--to--p234
+  source: wav48_silence_trimmed/p226/p226_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p234
+  target_references:
+  - wav48_silence_trimmed/p234/p234_006_mic1.flac
+  - wav48_silence_trimmed/p234/p234_007_mic1.flac
+  - wav48_silence_trimmed/p234/p234_008_mic1.flac
+- pair_id: p226_004_mic1--to--p234
+  source: wav48_silence_trimmed/p226/p226_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p234
+  target_references:
+  - wav48_silence_trimmed/p234/p234_006_mic1.flac
+  - wav48_silence_trimmed/p234/p234_007_mic1.flac
+  - wav48_silence_trimmed/p234/p234_008_mic1.flac
+- pair_id: p226_005_mic1--to--p234
+  source: wav48_silence_trimmed/p226/p226_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p234
+  target_references:
+  - wav48_silence_trimmed/p234/p234_006_mic1.flac
+  - wav48_silence_trimmed/p234/p234_007_mic1.flac
+  - wav48_silence_trimmed/p234/p234_008_mic1.flac
+- pair_id: p234_001_mic1--to--p237
+  source: wav48_silence_trimmed/p234/p234_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p237
+  target_references:
+  - wav48_silence_trimmed/p237/p237_006_mic1.flac
+  - wav48_silence_trimmed/p237/p237_007_mic1.flac
+  - wav48_silence_trimmed/p237/p237_008_mic1.flac
+- pair_id: p234_002_mic1--to--p237
+  source: wav48_silence_trimmed/p234/p234_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p237
+  target_references:
+  - wav48_silence_trimmed/p237/p237_006_mic1.flac
+  - wav48_silence_trimmed/p237/p237_007_mic1.flac
+  - wav48_silence_trimmed/p237/p237_008_mic1.flac
+- pair_id: p234_003_mic1--to--p237
+  source: wav48_silence_trimmed/p234/p234_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p237
+  target_references:
+  - wav48_silence_trimmed/p237/p237_006_mic1.flac
+  - wav48_silence_trimmed/p237/p237_007_mic1.flac
+  - wav48_silence_trimmed/p237/p237_008_mic1.flac
+- pair_id: p234_004_mic1--to--p237
+  source: wav48_silence_trimmed/p234/p234_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p237
+  target_references:
+  - wav48_silence_trimmed/p237/p237_006_mic1.flac
+  - wav48_silence_trimmed/p237/p237_007_mic1.flac
+  - wav48_silence_trimmed/p237/p237_008_mic1.flac
+- pair_id: p234_005_mic1--to--p237
+  source: wav48_silence_trimmed/p234/p234_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p237
+  target_references:
+  - wav48_silence_trimmed/p237/p237_006_mic1.flac
+  - wav48_silence_trimmed/p237/p237_007_mic1.flac
+  - wav48_silence_trimmed/p237/p237_008_mic1.flac
+- pair_id: p237_001_mic1--to--p238
+  source: wav48_silence_trimmed/p237/p237_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p238
+  target_references:
+  - wav48_silence_trimmed/p238/p238_006_mic1.flac
+  - wav48_silence_trimmed/p238/p238_007_mic1.flac
+  - wav48_silence_trimmed/p238/p238_008_mic1.flac
+- pair_id: p237_002_mic1--to--p238
+  source: wav48_silence_trimmed/p237/p237_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p238
+  target_references:
+  - wav48_silence_trimmed/p238/p238_006_mic1.flac
+  - wav48_silence_trimmed/p238/p238_007_mic1.flac
+  - wav48_silence_trimmed/p238/p238_008_mic1.flac
+- pair_id: p237_003_mic1--to--p238
+  source: wav48_silence_trimmed/p237/p237_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p238
+  target_references:
+  - wav48_silence_trimmed/p238/p238_006_mic1.flac
+  - wav48_silence_trimmed/p238/p238_007_mic1.flac
+  - wav48_silence_trimmed/p238/p238_008_mic1.flac
+- pair_id: p237_004_mic1--to--p238
+  source: wav48_silence_trimmed/p237/p237_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p238
+  target_references:
+  - wav48_silence_trimmed/p238/p238_006_mic1.flac
+  - wav48_silence_trimmed/p238/p238_007_mic1.flac
+  - wav48_silence_trimmed/p238/p238_008_mic1.flac
+- pair_id: p237_005_mic1--to--p238
+  source: wav48_silence_trimmed/p237/p237_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p238
+  target_references:
+  - wav48_silence_trimmed/p238/p238_006_mic1.flac
+  - wav48_silence_trimmed/p238/p238_007_mic1.flac
+  - wav48_silence_trimmed/p238/p238_008_mic1.flac
+- pair_id: p238_001_mic1--to--p243
+  source: wav48_silence_trimmed/p238/p238_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p243
+  target_references:
+  - wav48_silence_trimmed/p243/p243_006_mic1.flac
+  - wav48_silence_trimmed/p243/p243_007_mic1.flac
+  - wav48_silence_trimmed/p243/p243_008_mic1.flac
+- pair_id: p238_002_mic1--to--p243
+  source: wav48_silence_trimmed/p238/p238_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p243
+  target_references:
+  - wav48_silence_trimmed/p243/p243_006_mic1.flac
+  - wav48_silence_trimmed/p243/p243_007_mic1.flac
+  - wav48_silence_trimmed/p243/p243_008_mic1.flac
+- pair_id: p238_003_mic1--to--p243
+  source: wav48_silence_trimmed/p238/p238_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p243
+  target_references:
+  - wav48_silence_trimmed/p243/p243_006_mic1.flac
+  - wav48_silence_trimmed/p243/p243_007_mic1.flac
+  - wav48_silence_trimmed/p243/p243_008_mic1.flac
+- pair_id: p238_004_mic1--to--p243
+  source: wav48_silence_trimmed/p238/p238_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p243
+  target_references:
+  - wav48_silence_trimmed/p243/p243_006_mic1.flac
+  - wav48_silence_trimmed/p243/p243_007_mic1.flac
+  - wav48_silence_trimmed/p243/p243_008_mic1.flac
+- pair_id: p238_005_mic1--to--p243
+  source: wav48_silence_trimmed/p238/p238_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p243
+  target_references:
+  - wav48_silence_trimmed/p243/p243_006_mic1.flac
+  - wav48_silence_trimmed/p243/p243_007_mic1.flac
+  - wav48_silence_trimmed/p243/p243_008_mic1.flac
+- pair_id: p243_001_mic1--to--p244
+  source: wav48_silence_trimmed/p243/p243_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p244
+  target_references:
+  - wav48_silence_trimmed/p244/p244_006_mic1.flac
+  - wav48_silence_trimmed/p244/p244_007_mic1.flac
+  - wav48_silence_trimmed/p244/p244_008_mic1.flac
+- pair_id: p243_002_mic1--to--p244
+  source: wav48_silence_trimmed/p243/p243_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p244
+  target_references:
+  - wav48_silence_trimmed/p244/p244_006_mic1.flac
+  - wav48_silence_trimmed/p244/p244_007_mic1.flac
+  - wav48_silence_trimmed/p244/p244_008_mic1.flac
+- pair_id: p243_003_mic1--to--p244
+  source: wav48_silence_trimmed/p243/p243_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p244
+  target_references:
+  - wav48_silence_trimmed/p244/p244_006_mic1.flac
+  - wav48_silence_trimmed/p244/p244_007_mic1.flac
+  - wav48_silence_trimmed/p244/p244_008_mic1.flac
+- pair_id: p243_004_mic1--to--p244
+  source: wav48_silence_trimmed/p243/p243_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p244
+  target_references:
+  - wav48_silence_trimmed/p244/p244_006_mic1.flac
+  - wav48_silence_trimmed/p244/p244_007_mic1.flac
+  - wav48_silence_trimmed/p244/p244_008_mic1.flac
+- pair_id: p243_005_mic1--to--p244
+  source: wav48_silence_trimmed/p243/p243_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p244
+  target_references:
+  - wav48_silence_trimmed/p244/p244_006_mic1.flac
+  - wav48_silence_trimmed/p244/p244_007_mic1.flac
+  - wav48_silence_trimmed/p244/p244_008_mic1.flac
+- pair_id: p244_001_mic1--to--p245
+  source: wav48_silence_trimmed/p244/p244_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p245
+  target_references:
+  - wav48_silence_trimmed/p245/p245_006_mic1.flac
+  - wav48_silence_trimmed/p245/p245_007_mic1.flac
+  - wav48_silence_trimmed/p245/p245_008_mic1.flac
+- pair_id: p244_002_mic1--to--p245
+  source: wav48_silence_trimmed/p244/p244_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p245
+  target_references:
+  - wav48_silence_trimmed/p245/p245_006_mic1.flac
+  - wav48_silence_trimmed/p245/p245_007_mic1.flac
+  - wav48_silence_trimmed/p245/p245_008_mic1.flac
+- pair_id: p244_003_mic1--to--p245
+  source: wav48_silence_trimmed/p244/p244_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p245
+  target_references:
+  - wav48_silence_trimmed/p245/p245_006_mic1.flac
+  - wav48_silence_trimmed/p245/p245_007_mic1.flac
+  - wav48_silence_trimmed/p245/p245_008_mic1.flac
+- pair_id: p244_004_mic1--to--p245
+  source: wav48_silence_trimmed/p244/p244_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p245
+  target_references:
+  - wav48_silence_trimmed/p245/p245_006_mic1.flac
+  - wav48_silence_trimmed/p245/p245_007_mic1.flac
+  - wav48_silence_trimmed/p245/p245_008_mic1.flac
+- pair_id: p244_005_mic1--to--p245
+  source: wav48_silence_trimmed/p244/p244_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p245
+  target_references:
+  - wav48_silence_trimmed/p245/p245_006_mic1.flac
+  - wav48_silence_trimmed/p245/p245_007_mic1.flac
+  - wav48_silence_trimmed/p245/p245_008_mic1.flac
+- pair_id: p245_001_mic1--to--p225
+  source: wav48_silence_trimmed/p245/p245_001_mic1.flac
+  transcript: Please call Stella.
+  target_bank: p225
+  target_references:
+  - wav48_silence_trimmed/p225/p225_006_mic1.flac
+  - wav48_silence_trimmed/p225/p225_007_mic1.flac
+  - wav48_silence_trimmed/p225/p225_008_mic1.flac
+- pair_id: p245_002_mic1--to--p225
+  source: wav48_silence_trimmed/p245/p245_002_mic1.flac
+  transcript: Ask her to bring these things with her from the store.
+  target_bank: p225
+  target_references:
+  - wav48_silence_trimmed/p225/p225_006_mic1.flac
+  - wav48_silence_trimmed/p225/p225_007_mic1.flac
+  - wav48_silence_trimmed/p225/p225_008_mic1.flac
+- pair_id: p245_003_mic1--to--p225
+  source: wav48_silence_trimmed/p245/p245_003_mic1.flac
+  transcript: Six spoons of fresh snow peas, five thick slabs of blue cheese, and
+    maybe a snack for her brother Bob.
+  target_bank: p225
+  target_references:
+  - wav48_silence_trimmed/p225/p225_006_mic1.flac
+  - wav48_silence_trimmed/p225/p225_007_mic1.flac
+  - wav48_silence_trimmed/p225/p225_008_mic1.flac
+- pair_id: p245_004_mic1--to--p225
+  source: wav48_silence_trimmed/p245/p245_004_mic1.flac
+  transcript: We also need a small plastic snake and a big toy frog for the kids.
+  target_bank: p225
+  target_references:
+  - wav48_silence_trimmed/p225/p225_006_mic1.flac
+  - wav48_silence_trimmed/p225/p225_007_mic1.flac
+  - wav48_silence_trimmed/p225/p225_008_mic1.flac
+- pair_id: p245_005_mic1--to--p225
+  source: wav48_silence_trimmed/p245/p245_005_mic1.flac
+  transcript: She can scoop these things into three red bags, and we will go meet
+    her Wednesday at the train station.
+  target_bank: p225
+  target_references:
+  - wav48_silence_trimmed/p225/p225_006_mic1.flac
+  - wav48_silence_trimmed/p225/p225_007_mic1.flac
+  - wav48_silence_trimmed/p225/p225_008_mic1.flac

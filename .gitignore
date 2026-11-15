@@ -1,25 +1,49 @@
-# Data
+# Generated project outputs
+/artifacts/
 /local/
-*.flac
+/data/raw/
+/data/external/
+
+# Audio, features, and model weights are ignored by default
 *.wav
-
-# Extracted features (large numpy files)
-results/features/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-.env
-
-# Torch hub cache
+*.flac
+*.npy
+*.npz
 *.pt
+*.pth
+*.ckpt
+*.onnx
 *.bin
 
-# OS
+# Intentional, compact portfolio audio
+!examples/audio/**/*.wav
+
+# Python environments and build products
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+.env
+.env.*
+condaenv.*.requirements.txt
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# Editors and operating systems
+.idea/
+.vscode/
 .DS_Store
 Thumbs.db
-
-# Keep these
-!results/audio/*.wav
-!results/metrics/*.json
+desktop.ini

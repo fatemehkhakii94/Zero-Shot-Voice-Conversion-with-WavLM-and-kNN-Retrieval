@@ -1,0 +1,2980 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-15T09:49:28.644143+00:00",
+  "dataset": "VCTK 0.92",
+  "manifest_sha256": "b3123bf7a20e3387bf4de21842601dea86d74fa59da6ecb5b76338750f5ea2fd",
+  "environment": {
+    "knnvc_toolkit": "0.1.0",
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 2070 Super",
+    "packages": {
+      "numpy": "1.26.4",
+      "openai-whisper": "20250625",
+      "speechbrain": "1.1.1",
+      "torch": "2.6.0+cu124",
+      "torchaudio": "2.6.0+cu124",
+      "torchmetrics": "1.9.0"
+    }
+  },
+  "config": {
+    "model": {
+      "repository": "bshall/knn-vc:v0.1",
+      "feature_layer": 6,
+      "device": "auto"
+    },
+    "audio": {
+      "sample_rate": 16000,
+      "source_max_seconds": null,
+      "reference_max_seconds": null,
+      "reference_vad_trigger_db": 7.0,
+      "output_loudness_db": -16.0
+    },
+    "matching": {
+      "k": 4,
+      "metric": "cosine",
+      "device": "auto",
+      "query_chunk_size": 512,
+      "reference_chunk_size": 32768
+    },
+    "paths": {
+      "bank_dir": "artifacts/banks",
+      "audio_dir": "artifacts/audio",
+      "report_dir": "artifacts/reports"
+    },
+    "evaluation": {
+      "whisper_model": "base.en",
+      "language": "en",
+      "timing_warmup_runs": 1,
+      "timing_runs": 3
+    }
+  },
+  "summary": {
+    "pair_count": 40,
+    "speaker_similarity": {
+      "converted_to_target": {
+        "mean": 0.640705,
+        "ci95_low": 0.613989,
+        "ci95_high": 0.665146
+      },
+      "source_to_target": {
+        "mean": 0.082044,
+        "ci95_low": 0.058842,
+        "ci95_high": 0.102499
+      },
+      "target_gain": {
+        "mean": 0.558661,
+        "ci95_low": 0.532439,
+        "ci95_high": 0.583521
+      }
+    },
+    "wer": {
+      "converted_corpus": 0.09058,
+      "source_corpus": 0.041667,
+      "converted_macro": 0.071856,
+      "converted_errors": 50,
+      "source_errors": 23,
+      "reference_words": 552
+    },
+    "dnsmos_overall": {
+      "converted": {
+        "mean": 3.250096,
+        "ci95_low": 3.204473,
+        "ci95_high": 3.293232
+      },
+      "source": {
+        "mean": 3.264555,
+        "ci95_low": 3.214995,
+        "ci95_high": 3.313729
+      }
+    },
+    "real_time_factor": {
+      "median": 0.017868,
+      "mean": 0.020838,
+      "p95": 0.034823
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "p225_001_mic1--to--p226",
+      "source": "wav48_silence_trimmed/p225/p225_001_mic1.flac",
+      "target_bank": "p226",
+      "target_references": [
+        "wav48_silence_trimmed/p226/p226_006_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_007_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p225_001_mic1--to--p226.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.152527,
+        "converted_to_target": 0.62104,
+        "converted_to_source": 0.182647,
+        "target_gain": 0.468514
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.319239,
+          "signal": 3.577085,
+          "background": 3.962489,
+          "overall": 3.211094
+        },
+        "converted": {
+          "p808": 3.618905,
+          "signal": 3.234985,
+          "background": 3.856208,
+          "overall": 2.88425
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.063984,
+          0.061716,
+          0.062517
+        ],
+        "median_inference_seconds": 0.062517,
+        "real_time_factor": 0.030473
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p225/p225_001_mic1.flac",
+        "target_bank": "p226",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p225_001_mic1--to--p226.wav",
+        "source_duration_seconds": 2.051563,
+        "output_duration_seconds": 2.04,
+        "source_frames": 102,
+        "reference_frames": 4888,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.062517,
+        "wall_seconds": 0.135169,
+        "real_time_factor": 0.030473,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p225_002_mic1--to--p226",
+      "source": "wav48_silence_trimmed/p225/p225_002_mic1.flac",
+      "target_bank": "p226",
+      "target_references": [
+        "wav48_silence_trimmed/p226/p226_006_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_007_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p225_002_mic1--to--p226.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.118854,
+        "converted_to_target": 0.729563,
+        "converted_to_source": 0.177858,
+        "target_gain": 0.610709
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.244955,
+          "signal": 3.507014,
+          "background": 3.980848,
+          "overall": 3.159978
+        },
+        "converted": {
+          "p808": 3.420588,
+          "signal": 3.614511,
+          "background": 4.145823,
+          "overall": 3.36764
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.085778,
+          0.07445,
+          0.075076
+        ],
+        "median_inference_seconds": 0.075076,
+        "real_time_factor": 0.019061
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p225/p225_002_mic1.flac",
+        "target_bank": "p226",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p225_002_mic1--to--p226.wav",
+        "source_duration_seconds": 3.938687,
+        "output_duration_seconds": 3.92,
+        "source_frames": 196,
+        "reference_frames": 4888,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.075076,
+        "wall_seconds": 0.141534,
+        "real_time_factor": 0.019061,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p225_003_mic1--to--p226",
+      "source": "wav48_silence_trimmed/p225/p225_003_mic1.flac",
+      "target_bank": "p226",
+      "target_references": [
+        "wav48_silence_trimmed/p226/p226_006_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_007_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p225_003_mic1--to--p226.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.156069,
+        "converted_to_target": 0.726666,
+        "converted_to_source": 0.19568,
+        "target_gain": 0.570597
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.653562,
+          "signal": 3.437338,
+          "background": 3.926558,
+          "overall": 3.097288
+        },
+        "converted": {
+          "p808": 3.980251,
+          "signal": 3.491579,
+          "background": 4.036582,
+          "overall": 3.205096
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.129112,
+          0.112181,
+          0.122069
+        ],
+        "median_inference_seconds": 0.122069,
+        "real_time_factor": 0.016087
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p225/p225_003_mic1.flac",
+        "target_bank": "p226",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p225_003_mic1--to--p226.wav",
+        "source_duration_seconds": 7.588188,
+        "output_duration_seconds": 7.58,
+        "source_frames": 379,
+        "reference_frames": 4888,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.122069,
+        "wall_seconds": 0.198317,
+        "real_time_factor": 0.016087,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p225_004_mic1--to--p226",
+      "source": "wav48_silence_trimmed/p225/p225_004_mic1.flac",
+      "target_bank": "p226",
+      "target_references": [
+        "wav48_silence_trimmed/p226/p226_006_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_007_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p225_004_mic1--to--p226.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.04782,
+        "converted_to_target": 0.756976,
+        "converted_to_source": 0.142215,
+        "target_gain": 0.709156
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy for up for the kids",
+        "source_errors": 0,
+        "converted_errors": 2,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.133333
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.731778,
+          "signal": 3.350633,
+          "background": 3.909658,
+          "overall": 3.00839
+        },
+        "converted": {
+          "p808": 3.607191,
+          "signal": 3.528705,
+          "background": 4.055693,
+          "overall": 3.246206
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.103729,
+          0.094631,
+          0.093611
+        ],
+        "median_inference_seconds": 0.094631,
+        "real_time_factor": 0.021452
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p225/p225_004_mic1.flac",
+        "target_bank": "p226",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p225_004_mic1--to--p226.wav",
+        "source_duration_seconds": 4.411313,
+        "output_duration_seconds": 4.4,
+        "source_frames": 220,
+        "reference_frames": 4888,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.093611,
+        "wall_seconds": 0.182366,
+        "real_time_factor": 0.021221,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p225_005_mic1--to--p226",
+      "source": "wav48_silence_trimmed/p225/p225_005_mic1.flac",
+      "target_bank": "p226",
+      "target_references": [
+        "wav48_silence_trimmed/p226/p226_006_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_007_mic1.flac",
+        "wav48_silence_trimmed/p226/p226_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p225_005_mic1--to--p226.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.134916,
+        "converted_to_target": 0.751629,
+        "converted_to_source": 0.169027,
+        "target_gain": 0.616713
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoot these things into three red bags and we will go meet her wednesday at the train station",
+        "converted": "she can scoot these things into three red bags and we will go meet her wednesday at the train station",
+        "source_errors": 1,
+        "converted_errors": 1,
+        "reference_words": 20,
+        "source_wer": 0.05,
+        "converted_wer": 0.05
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.900054,
+          "signal": 3.478248,
+          "background": 3.79683,
+          "overall": 3.0712
+        },
+        "converted": {
+          "p808": 4.059622,
+          "signal": 3.536014,
+          "background": 4.091381,
+          "overall": 3.279926
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.109446,
+          0.103045,
+          0.106912
+        ],
+        "median_inference_seconds": 0.106912,
+        "real_time_factor": 0.016909
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p225/p225_005_mic1.flac",
+        "target_bank": "p226",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p225_005_mic1--to--p226.wav",
+        "source_duration_seconds": 6.322687,
+        "output_duration_seconds": 6.3,
+        "source_frames": 315,
+        "reference_frames": 4888,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.106912,
+        "wall_seconds": 0.189783,
+        "real_time_factor": 0.016909,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p226_001_mic1--to--p234",
+      "source": "wav48_silence_trimmed/p226/p226_001_mic1.flac",
+      "target_bank": "p234",
+      "target_references": [
+        "wav48_silence_trimmed/p234/p234_006_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_007_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p226_001_mic1--to--p234.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.050248,
+        "converted_to_target": 0.488356,
+        "converted_to_source": 0.020293,
+        "target_gain": 0.438108
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.112982,
+          "signal": 3.332155,
+          "background": 3.629449,
+          "overall": 2.864694
+        },
+        "converted": {
+          "p808": 3.584978,
+          "signal": 3.513714,
+          "background": 3.944849,
+          "overall": 3.158832
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.092493,
+          0.092966,
+          0.092196
+        ],
+        "median_inference_seconds": 0.092493,
+        "real_time_factor": 0.033048
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p226/p226_001_mic1.flac",
+        "target_bank": "p234",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p226_001_mic1--to--p234.wav",
+        "source_duration_seconds": 2.79875,
+        "output_duration_seconds": 2.78,
+        "source_frames": 139,
+        "reference_frames": 4266,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.092196,
+        "wall_seconds": 0.150513,
+        "real_time_factor": 0.032942,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p226_002_mic1--to--p234",
+      "source": "wav48_silence_trimmed/p226/p226_002_mic1.flac",
+      "target_bank": "p234",
+      "target_references": [
+        "wav48_silence_trimmed/p234/p234_006_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_007_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p226_002_mic1--to--p234.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.026935,
+        "converted_to_target": 0.686661,
+        "converted_to_source": 0.128378,
+        "target_gain": 0.659727
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the stool",
+        "source_errors": 0,
+        "converted_errors": 1,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.090909
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.896472,
+          "signal": 3.638624,
+          "background": 4.149336,
+          "overall": 3.403437
+        },
+        "converted": {
+          "p808": 4.127916,
+          "signal": 3.655533,
+          "background": 4.110589,
+          "overall": 3.393149
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.088052,
+          0.077703,
+          0.072074
+        ],
+        "median_inference_seconds": 0.077703,
+        "real_time_factor": 0.018013
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p226/p226_002_mic1.flac",
+        "target_bank": "p234",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p226_002_mic1--to--p234.wav",
+        "source_duration_seconds": 4.313688,
+        "output_duration_seconds": 4.3,
+        "source_frames": 215,
+        "reference_frames": 4266,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.072074,
+        "wall_seconds": 0.140542,
+        "real_time_factor": 0.016708,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p226_003_mic1--to--p234",
+      "source": "wav48_silence_trimmed/p226/p226_003_mic1.flac",
+      "target_bank": "p234",
+      "target_references": [
+        "wav48_silence_trimmed/p234/p234_006_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_007_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p226_003_mic1--to--p234.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.136172,
+        "converted_to_target": 0.734759,
+        "converted_to_source": 0.156585,
+        "target_gain": 0.598587
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.932356,
+          "signal": 3.534268,
+          "background": 4.074893,
+          "overall": 3.275333
+        },
+        "converted": {
+          "p808": 3.85269,
+          "signal": 3.530594,
+          "background": 3.958656,
+          "overall": 3.195013
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.133419,
+          0.123017,
+          0.129871
+        ],
+        "median_inference_seconds": 0.129871,
+        "real_time_factor": 0.016214
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p226/p226_003_mic1.flac",
+        "target_bank": "p234",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p226_003_mic1--to--p234.wav",
+        "source_duration_seconds": 8.009625,
+        "output_duration_seconds": 8.0,
+        "source_frames": 400,
+        "reference_frames": 4266,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.129871,
+        "wall_seconds": 0.215742,
+        "real_time_factor": 0.016214,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p226_004_mic1--to--p234",
+      "source": "wav48_silence_trimmed/p226/p226_004_mic1.flac",
+      "target_bank": "p234",
+      "target_references": [
+        "wav48_silence_trimmed/p234/p234_006_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_007_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p226_004_mic1--to--p234.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.093499,
+        "converted_to_target": 0.706516,
+        "converted_to_source": 0.115872,
+        "target_gain": 0.613017
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy frog for the kids",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.013151,
+          "signal": 3.628886,
+          "background": 4.1398,
+          "overall": 3.383003
+        },
+        "converted": {
+          "p808": 3.703541,
+          "signal": 3.65883,
+          "background": 4.167056,
+          "overall": 3.415696
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.140435,
+          0.108179,
+          0.100826
+        ],
+        "median_inference_seconds": 0.108179,
+        "real_time_factor": 0.017751
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p226/p226_004_mic1.flac",
+        "target_bank": "p234",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p226_004_mic1--to--p234.wav",
+        "source_duration_seconds": 6.094313,
+        "output_duration_seconds": 6.08,
+        "source_frames": 304,
+        "reference_frames": 4266,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.100826,
+        "wall_seconds": 0.173833,
+        "real_time_factor": 0.016544,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p226_005_mic1--to--p234",
+      "source": "wav48_silence_trimmed/p226/p226_005_mic1.flac",
+      "target_bank": "p234",
+      "target_references": [
+        "wav48_silence_trimmed/p234/p234_006_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_007_mic1.flac",
+        "wav48_silence_trimmed/p234/p234_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p226_005_mic1--to--p234.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.092241,
+        "converted_to_target": 0.704877,
+        "converted_to_source": 0.135358,
+        "target_gain": 0.612637
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "converted": "she can scoop these things into three red bags and we will go and meet her wednesday at the train station",
+        "source_errors": 0,
+        "converted_errors": 1,
+        "reference_words": 20,
+        "source_wer": 0.0,
+        "converted_wer": 0.05
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.058321,
+          "signal": 3.619442,
+          "background": 4.151003,
+          "overall": 3.381135
+        },
+        "converted": {
+          "p808": 4.229583,
+          "signal": 3.663142,
+          "background": 4.14603,
+          "overall": 3.415244
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.133953,
+          0.128735,
+          0.127871
+        ],
+        "median_inference_seconds": 0.128735,
+        "real_time_factor": 0.016668
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p226/p226_005_mic1.flac",
+        "target_bank": "p234",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p226_005_mic1--to--p234.wav",
+        "source_duration_seconds": 7.723625,
+        "output_duration_seconds": 7.7,
+        "source_frames": 385,
+        "reference_frames": 4266,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.127871,
+        "wall_seconds": 0.20279,
+        "real_time_factor": 0.016556,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p234_001_mic1--to--p237",
+      "source": "wav48_silence_trimmed/p234/p234_001_mic1.flac",
+      "target_bank": "p237",
+      "target_references": [
+        "wav48_silence_trimmed/p237/p237_006_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_007_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p234_001_mic1--to--p237.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.116853,
+        "converted_to_target": 0.524568,
+        "converted_to_source": 0.144427,
+        "target_gain": 0.407715
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.498343,
+          "signal": 3.430261,
+          "background": 3.420799,
+          "overall": 2.814527
+        },
+        "converted": {
+          "p808": 3.34836,
+          "signal": 3.39039,
+          "background": 3.733839,
+          "overall": 2.981708
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.095573,
+          0.093246,
+          0.082295
+        ],
+        "median_inference_seconds": 0.093246,
+        "real_time_factor": 0.033595
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p234/p234_001_mic1.flac",
+        "target_bank": "p237",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p234_001_mic1--to--p237.wav",
+        "source_duration_seconds": 2.775562,
+        "output_duration_seconds": 2.76,
+        "source_frames": 138,
+        "reference_frames": 3905,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.082295,
+        "wall_seconds": 0.147013,
+        "real_time_factor": 0.02965,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p234_002_mic1--to--p237",
+      "source": "wav48_silence_trimmed/p234/p234_002_mic1.flac",
+      "target_bank": "p237",
+      "target_references": [
+        "wav48_silence_trimmed/p237/p237_006_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_007_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p234_002_mic1--to--p237.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.159429,
+        "converted_to_target": 0.58946,
+        "converted_to_source": 0.164275,
+        "target_gain": 0.430031
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.43218,
+          "signal": 3.602113,
+          "background": 3.957274,
+          "overall": 3.26372
+        },
+        "converted": {
+          "p808": 3.72384,
+          "signal": 3.587014,
+          "background": 4.052013,
+          "overall": 3.308956
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.078184,
+          0.074293,
+          0.075011
+        ],
+        "median_inference_seconds": 0.075011,
+        "real_time_factor": 0.018882
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p234/p234_002_mic1.flac",
+        "target_bank": "p237",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p234_002_mic1--to--p237.wav",
+        "source_duration_seconds": 3.972625,
+        "output_duration_seconds": 3.96,
+        "source_frames": 198,
+        "reference_frames": 3905,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.075011,
+        "wall_seconds": 0.131847,
+        "real_time_factor": 0.018882,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p234_003_mic1--to--p237",
+      "source": "wav48_silence_trimmed/p234/p234_003_mic1.flac",
+      "target_bank": "p237",
+      "target_references": [
+        "wav48_silence_trimmed/p237/p237_006_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_007_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p234_003_mic1--to--p237.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.158329,
+        "converted_to_target": 0.639147,
+        "converted_to_source": 0.073979,
+        "target_gain": 0.480818
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 bins of fresh no peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 4,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.2
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.912719,
+          "signal": 3.569805,
+          "background": 3.737212,
+          "overall": 3.131639
+        },
+        "converted": {
+          "p808": 3.9442,
+          "signal": 3.614928,
+          "background": 4.017014,
+          "overall": 3.326541
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.120526,
+          0.101231,
+          0.106605
+        ],
+        "median_inference_seconds": 0.106605,
+        "real_time_factor": 0.01629
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p234/p234_003_mic1.flac",
+        "target_bank": "p237",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p234_003_mic1--to--p237.wav",
+        "source_duration_seconds": 6.544125,
+        "output_duration_seconds": 6.52,
+        "source_frames": 326,
+        "reference_frames": 3905,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.106605,
+        "wall_seconds": 0.176293,
+        "real_time_factor": 0.01629,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p234_004_mic1--to--p237",
+      "source": "wav48_silence_trimmed/p234/p234_004_mic1.flac",
+      "target_bank": "p237",
+      "target_references": [
+        "wav48_silence_trimmed/p237/p237_006_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_007_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p234_004_mic1--to--p237.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.137088,
+        "converted_to_target": 0.657551,
+        "converted_to_source": 0.056088,
+        "target_gain": 0.520462
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy frog for the kids",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.97396,
+          "signal": 3.583739,
+          "background": 3.753073,
+          "overall": 3.169924
+        },
+        "converted": {
+          "p808": 3.966624,
+          "signal": 3.617664,
+          "background": 4.137163,
+          "overall": 3.378908
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.130661,
+          0.099209,
+          0.085759
+        ],
+        "median_inference_seconds": 0.099209,
+        "real_time_factor": 0.021163
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p234/p234_004_mic1.flac",
+        "target_bank": "p237",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p234_004_mic1--to--p237.wav",
+        "source_duration_seconds": 4.687875,
+        "output_duration_seconds": 4.68,
+        "source_frames": 234,
+        "reference_frames": 3905,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.085759,
+        "wall_seconds": 0.142814,
+        "real_time_factor": 0.018294,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p234_005_mic1--to--p237",
+      "source": "wav48_silence_trimmed/p234/p234_005_mic1.flac",
+      "target_bank": "p237",
+      "target_references": [
+        "wav48_silence_trimmed/p237/p237_006_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_007_mic1.flac",
+        "wav48_silence_trimmed/p237/p237_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p234_005_mic1--to--p237.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.18038,
+        "converted_to_target": 0.585019,
+        "converted_to_source": 0.090672,
+        "target_gain": 0.404639
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go and meet her wednesday at the train station",
+        "converted": "she can skirt these things into three red bags and we will go meet her wednesday at the train station",
+        "source_errors": 1,
+        "converted_errors": 1,
+        "reference_words": 20,
+        "source_wer": 0.05,
+        "converted_wer": 0.05
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.605298,
+          "signal": 3.630124,
+          "background": 4.06487,
+          "overall": 3.342529
+        },
+        "converted": {
+          "p808": 3.910868,
+          "signal": 3.6411,
+          "background": 4.101397,
+          "overall": 3.404116
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.110304,
+          0.110744,
+          0.110834
+        ],
+        "median_inference_seconds": 0.110744,
+        "real_time_factor": 0.015699
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p234/p234_005_mic1.flac",
+        "target_bank": "p237",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p234_005_mic1--to--p237.wav",
+        "source_duration_seconds": 7.054,
+        "output_duration_seconds": 7.04,
+        "source_frames": 352,
+        "reference_frames": 3905,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.110834,
+        "wall_seconds": 0.182395,
+        "real_time_factor": 0.015712,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p237_001_mic1--to--p238",
+      "source": "wav48_silence_trimmed/p237/p237_001_mic1.flac",
+      "target_bank": "p238",
+      "target_references": [
+        "wav48_silence_trimmed/p238/p238_006_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_007_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p237_001_mic1--to--p238.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.012043,
+        "converted_to_target": 0.42371,
+        "converted_to_source": 0.149677,
+        "target_gain": 0.411667
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.658367,
+          "signal": 3.329018,
+          "background": 3.998978,
+          "overall": 3.031364
+        },
+        "converted": {
+          "p808": 3.287082,
+          "signal": 3.402096,
+          "background": 3.819127,
+          "overall": 3.033266
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.104358,
+          0.093707,
+          0.088601
+        ],
+        "median_inference_seconds": 0.093707,
+        "real_time_factor": 0.040746
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p237/p237_001_mic1.flac",
+        "target_bank": "p238",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p237_001_mic1--to--p238.wav",
+        "source_duration_seconds": 2.299812,
+        "output_duration_seconds": 2.28,
+        "source_frames": 114,
+        "reference_frames": 5553,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.088601,
+        "wall_seconds": 0.182295,
+        "real_time_factor": 0.038525,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p237_002_mic1--to--p238",
+      "source": "wav48_silence_trimmed/p237/p237_002_mic1.flac",
+      "target_bank": "p238",
+      "target_references": [
+        "wav48_silence_trimmed/p238/p238_006_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_007_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p237_002_mic1--to--p238.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.008198,
+        "converted_to_target": 0.570873,
+        "converted_to_source": 0.124089,
+        "target_gain": 0.579072
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.796321,
+          "signal": 3.613156,
+          "background": 4.045327,
+          "overall": 3.325148
+        },
+        "converted": {
+          "p808": 3.750578,
+          "signal": 3.361096,
+          "background": 3.972197,
+          "overall": 3.058162
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.108724,
+          0.094879,
+          0.086555
+        ],
+        "median_inference_seconds": 0.094879,
+        "real_time_factor": 0.022479
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p237/p237_002_mic1.flac",
+        "target_bank": "p238",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p237_002_mic1--to--p238.wav",
+        "source_duration_seconds": 4.22075,
+        "output_duration_seconds": 4.2,
+        "source_frames": 210,
+        "reference_frames": 5553,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.086555,
+        "wall_seconds": 0.17455,
+        "real_time_factor": 0.020507,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p237_003_mic1--to--p238",
+      "source": "wav48_silence_trimmed/p237/p237_003_mic1.flac",
+      "target_bank": "p238",
+      "target_references": [
+        "wav48_silence_trimmed/p238/p238_006_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_007_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p237_003_mic1--to--p238.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.01319,
+        "converted_to_target": 0.653151,
+        "converted_to_source": 0.10924,
+        "target_gain": 0.666341
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 boons of fresh no peas 5 thick slobs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 5,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.25
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.911306,
+          "signal": 3.645637,
+          "background": 4.16081,
+          "overall": 3.403961
+        },
+        "converted": {
+          "p808": 3.836394,
+          "signal": 3.510246,
+          "background": 4.014661,
+          "overall": 3.207368
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.125179,
+          0.115614,
+          0.121316
+        ],
+        "median_inference_seconds": 0.121316,
+        "real_time_factor": 0.016914
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p237/p237_003_mic1.flac",
+        "target_bank": "p238",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p237_003_mic1--to--p238.wav",
+        "source_duration_seconds": 7.172688,
+        "output_duration_seconds": 7.16,
+        "source_frames": 358,
+        "reference_frames": 5553,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.121316,
+        "wall_seconds": 0.211138,
+        "real_time_factor": 0.016914,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p237_004_mic1--to--p238",
+      "source": "wav48_silence_trimmed/p237/p237_004_mic1.flac",
+      "target_bank": "p238",
+      "target_references": [
+        "wav48_silence_trimmed/p238/p238_006_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_007_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p237_004_mic1--to--p238.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.044564,
+        "converted_to_target": 0.566625,
+        "converted_to_source": 0.079959,
+        "target_gain": 0.611189
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy frog for the kids",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.011313,
+          "signal": 3.606518,
+          "background": 4.084595,
+          "overall": 3.334809
+        },
+        "converted": {
+          "p808": 3.676726,
+          "signal": 3.492891,
+          "background": 4.024539,
+          "overall": 3.189946
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.143839,
+          0.122592,
+          0.101151
+        ],
+        "median_inference_seconds": 0.122592,
+        "real_time_factor": 0.023305
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p237/p237_004_mic1.flac",
+        "target_bank": "p238",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p237_004_mic1--to--p238.wav",
+        "source_duration_seconds": 5.260375,
+        "output_duration_seconds": 5.24,
+        "source_frames": 262,
+        "reference_frames": 5553,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.101151,
+        "wall_seconds": 0.192332,
+        "real_time_factor": 0.019229,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p237_005_mic1--to--p238",
+      "source": "wav48_silence_trimmed/p237/p237_005_mic1.flac",
+      "target_bank": "p238",
+      "target_references": [
+        "wav48_silence_trimmed/p238/p238_006_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_007_mic1.flac",
+        "wav48_silence_trimmed/p238/p238_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p237_005_mic1--to--p238.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.005955,
+        "converted_to_target": 0.6655,
+        "converted_to_source": 0.123909,
+        "target_gain": 0.659544
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "converted": "she can skip these things into three red bags and we will go meet her when to set the train session",
+        "source_errors": 0,
+        "converted_errors": 5,
+        "reference_words": 20,
+        "source_wer": 0.0,
+        "converted_wer": 0.25
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.101967,
+          "signal": 3.632141,
+          "background": 4.158616,
+          "overall": 3.412614
+        },
+        "converted": {
+          "p808": 3.998464,
+          "signal": 3.481775,
+          "background": 3.995441,
+          "overall": 3.17379
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.101661,
+          0.096422,
+          0.105442
+        ],
+        "median_inference_seconds": 0.101661,
+        "real_time_factor": 0.016316
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p237/p237_005_mic1.flac",
+        "target_bank": "p238",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p237_005_mic1--to--p238.wav",
+        "source_duration_seconds": 6.230812,
+        "output_duration_seconds": 6.22,
+        "source_frames": 311,
+        "reference_frames": 5553,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.105442,
+        "wall_seconds": 0.199871,
+        "real_time_factor": 0.016923,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p238_001_mic1--to--p243",
+      "source": "wav48_silence_trimmed/p238/p238_001_mic1.flac",
+      "target_bank": "p243",
+      "target_references": [
+        "wav48_silence_trimmed/p243/p243_006_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_007_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p238_001_mic1--to--p243.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.125591,
+        "converted_to_target": 0.467785,
+        "converted_to_source": 0.11554,
+        "target_gain": 0.593376
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.58626,
+          "signal": 3.628974,
+          "background": 4.118599,
+          "overall": 3.342451
+        },
+        "converted": {
+          "p808": 3.532435,
+          "signal": 3.448523,
+          "background": 4.021856,
+          "overall": 3.153517
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.069602,
+          0.069045,
+          0.065525
+        ],
+        "median_inference_seconds": 0.069045,
+        "real_time_factor": 0.022163
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p238/p238_001_mic1.flac",
+        "target_bank": "p243",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p238_001_mic1--to--p243.wav",
+        "source_duration_seconds": 3.115312,
+        "output_duration_seconds": 3.1,
+        "source_frames": 155,
+        "reference_frames": 5147,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.065525,
+        "wall_seconds": 0.146403,
+        "real_time_factor": 0.021033,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p238_002_mic1--to--p243",
+      "source": "wav48_silence_trimmed/p238/p238_002_mic1.flac",
+      "target_bank": "p243",
+      "target_references": [
+        "wav48_silence_trimmed/p243/p243_006_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_007_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p238_002_mic1--to--p243.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.020439,
+        "converted_to_target": 0.537211,
+        "converted_to_source": 0.063545,
+        "target_gain": 0.55765
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.772959,
+          "signal": 3.649234,
+          "background": 4.120878,
+          "overall": 3.37814
+        },
+        "converted": {
+          "p808": 3.930067,
+          "signal": 3.591424,
+          "background": 4.124973,
+          "overall": 3.344255
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.07808,
+          0.077455,
+          0.07686
+        ],
+        "median_inference_seconds": 0.077455,
+        "real_time_factor": 0.01732
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p238/p238_002_mic1.flac",
+        "target_bank": "p243",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p238_002_mic1--to--p243.wav",
+        "source_duration_seconds": 4.472,
+        "output_duration_seconds": 4.46,
+        "source_frames": 223,
+        "reference_frames": 5147,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.07686,
+        "wall_seconds": 0.168661,
+        "real_time_factor": 0.017187,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p238_003_mic1--to--p243",
+      "source": "wav48_silence_trimmed/p238/p238_003_mic1.flac",
+      "target_bank": "p243",
+      "target_references": [
+        "wav48_silence_trimmed/p243/p243_006_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_007_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p238_003_mic1--to--p243.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.007551,
+        "converted_to_target": 0.61359,
+        "converted_to_source": 0.086291,
+        "target_gain": 0.621141
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.90556,
+          "signal": 3.589659,
+          "background": 4.08091,
+          "overall": 3.297781
+        },
+        "converted": {
+          "p808": 3.885003,
+          "signal": 3.435121,
+          "background": 4.059217,
+          "overall": 3.159071
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.144264,
+          0.126145,
+          0.129558
+        ],
+        "median_inference_seconds": 0.129558,
+        "real_time_factor": 0.015568
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p238/p238_003_mic1.flac",
+        "target_bank": "p243",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p238_003_mic1--to--p243.wav",
+        "source_duration_seconds": 8.321875,
+        "output_duration_seconds": 8.3,
+        "source_frames": 415,
+        "reference_frames": 5147,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.129558,
+        "wall_seconds": 0.223722,
+        "real_time_factor": 0.015568,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p238_004_mic1--to--p243",
+      "source": "wav48_silence_trimmed/p238/p238_004_mic1.flac",
+      "target_bank": "p243",
+      "target_references": [
+        "wav48_silence_trimmed/p243/p243_006_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_007_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p238_004_mic1--to--p243.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.031172,
+        "converted_to_target": 0.547724,
+        "converted_to_source": 0.176979,
+        "target_gain": 0.516552
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy frog for the kids",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.662835,
+          "signal": 3.510171,
+          "background": 4.025342,
+          "overall": 3.20349
+        },
+        "converted": {
+          "p808": 3.834684,
+          "signal": 3.435688,
+          "background": 3.965088,
+          "overall": 3.124106
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.152218,
+          0.110249,
+          0.098376
+        ],
+        "median_inference_seconds": 0.110249,
+        "real_time_factor": 0.017171
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p238/p238_004_mic1.flac",
+        "target_bank": "p243",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p238_004_mic1--to--p243.wav",
+        "source_duration_seconds": 6.420687,
+        "output_duration_seconds": 6.4,
+        "source_frames": 320,
+        "reference_frames": 5147,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.098376,
+        "wall_seconds": 0.184677,
+        "real_time_factor": 0.015322,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p238_005_mic1--to--p243",
+      "source": "wav48_silence_trimmed/p238/p238_005_mic1.flac",
+      "target_bank": "p243",
+      "target_references": [
+        "wav48_silence_trimmed/p243/p243_006_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_007_mic1.flac",
+        "wav48_silence_trimmed/p243/p243_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p238_005_mic1--to--p243.wav",
+      "speaker_similarity": {
+        "source_to_target": -0.006321,
+        "converted_to_target": 0.6643,
+        "converted_to_source": 0.135849,
+        "target_gain": 0.670621
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "converted": "she can skip these things into 3d red bags and we will go meet her wednesday at the train station",
+        "source_errors": 0,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.0,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.926241,
+          "signal": 3.645991,
+          "background": 4.188396,
+          "overall": 3.414156
+        },
+        "converted": {
+          "p808": 4.158167,
+          "signal": 3.530302,
+          "background": 4.114701,
+          "overall": 3.295859
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.128301,
+          0.132842,
+          0.134636
+        ],
+        "median_inference_seconds": 0.132842,
+        "real_time_factor": 0.015738
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p238/p238_005_mic1.flac",
+        "target_bank": "p243",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p238_005_mic1--to--p243.wav",
+        "source_duration_seconds": 8.440687,
+        "output_duration_seconds": 8.42,
+        "source_frames": 421,
+        "reference_frames": 5147,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.134636,
+        "wall_seconds": 0.22179,
+        "real_time_factor": 0.015951,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p243_001_mic1--to--p244",
+      "source": "wav48_silence_trimmed/p243/p243_001_mic1.flac",
+      "target_bank": "p244",
+      "target_references": [
+        "wav48_silence_trimmed/p244/p244_006_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_007_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p243_001_mic1--to--p244.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.101692,
+        "converted_to_target": 0.650896,
+        "converted_to_source": 0.138675,
+        "target_gain": 0.549204
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.675822,
+          "signal": 3.535095,
+          "background": 4.13299,
+          "overall": 3.274781
+        },
+        "converted": {
+          "p808": 3.667915,
+          "signal": 3.544712,
+          "background": 4.091802,
+          "overall": 3.269703
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.113966,
+          0.090581,
+          0.075245
+        ],
+        "median_inference_seconds": 0.090581,
+        "real_time_factor": 0.034767
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p243/p243_001_mic1.flac",
+        "target_bank": "p244",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p243_001_mic1--to--p244.wav",
+        "source_duration_seconds": 2.605375,
+        "output_duration_seconds": 2.6,
+        "source_frames": 130,
+        "reference_frames": 3874,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.075245,
+        "wall_seconds": 0.138736,
+        "real_time_factor": 0.028881,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p243_002_mic1--to--p244",
+      "source": "wav48_silence_trimmed/p243/p243_002_mic1.flac",
+      "target_bank": "p244",
+      "target_references": [
+        "wav48_silence_trimmed/p244/p244_006_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_007_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p243_002_mic1--to--p244.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.052474,
+        "converted_to_target": 0.73214,
+        "converted_to_source": 0.122707,
+        "target_gain": 0.679666
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.943341,
+          "signal": 3.645105,
+          "background": 4.118374,
+          "overall": 3.381505
+        },
+        "converted": {
+          "p808": 3.723943,
+          "signal": 3.744997,
+          "background": 4.104393,
+          "overall": 3.472231
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.082088,
+          0.074676,
+          0.088361
+        ],
+        "median_inference_seconds": 0.082088,
+        "real_time_factor": 0.019199
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p243/p243_002_mic1.flac",
+        "target_bank": "p244",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p243_002_mic1--to--p244.wav",
+        "source_duration_seconds": 4.275563,
+        "output_duration_seconds": 4.26,
+        "source_frames": 213,
+        "reference_frames": 3874,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.088361,
+        "wall_seconds": 0.156189,
+        "real_time_factor": 0.020666,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p243_003_mic1--to--p244",
+      "source": "wav48_silence_trimmed/p243/p243_003_mic1.flac",
+      "target_bank": "p244",
+      "target_references": [
+        "wav48_silence_trimmed/p244/p244_006_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_007_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p243_003_mic1--to--p244.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.126318,
+        "converted_to_target": 0.76753,
+        "converted_to_source": 0.126772,
+        "target_gain": 0.641211
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.767563,
+          "signal": 3.566016,
+          "background": 4.105748,
+          "overall": 3.283148
+        },
+        "converted": {
+          "p808": 3.972505,
+          "signal": 3.545461,
+          "background": 3.993717,
+          "overall": 3.21052
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.137389,
+          0.122592,
+          0.125835
+        ],
+        "median_inference_seconds": 0.125835,
+        "real_time_factor": 0.015517
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p243/p243_003_mic1.flac",
+        "target_bank": "p244",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p243_003_mic1--to--p244.wav",
+        "source_duration_seconds": 8.109625,
+        "output_duration_seconds": 8.1,
+        "source_frames": 405,
+        "reference_frames": 3874,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.125835,
+        "wall_seconds": 0.191727,
+        "real_time_factor": 0.015517,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p243_004_mic1--to--p244",
+      "source": "wav48_silence_trimmed/p243/p243_004_mic1.flac",
+      "target_bank": "p244",
+      "target_references": [
+        "wav48_silence_trimmed/p244/p244_006_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_007_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p243_004_mic1--to--p244.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.106685,
+        "converted_to_target": 0.717579,
+        "converted_to_source": 0.144128,
+        "target_gain": 0.610894
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy fog for the kids",
+        "source_errors": 0,
+        "converted_errors": 1,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.066667
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.865931,
+          "signal": 3.513216,
+          "background": 4.08412,
+          "overall": 3.251681
+        },
+        "converted": {
+          "p808": 3.548181,
+          "signal": 3.543845,
+          "background": 4.041048,
+          "overall": 3.250282
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.139417,
+          0.098054,
+          0.098268
+        ],
+        "median_inference_seconds": 0.098268,
+        "real_time_factor": 0.017984
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p243/p243_004_mic1.flac",
+        "target_bank": "p244",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p243_004_mic1--to--p244.wav",
+        "source_duration_seconds": 5.46425,
+        "output_duration_seconds": 5.44,
+        "source_frames": 272,
+        "reference_frames": 3874,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.098268,
+        "wall_seconds": 0.157113,
+        "real_time_factor": 0.017984,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p243_005_mic1--to--p244",
+      "source": "wav48_silence_trimmed/p243/p243_005_mic1.flac",
+      "target_bank": "p244",
+      "target_references": [
+        "wav48_silence_trimmed/p244/p244_006_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_007_mic1.flac",
+        "wav48_silence_trimmed/p244/p244_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p243_005_mic1--to--p244.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.116317,
+        "converted_to_target": 0.731548,
+        "converted_to_source": 0.182081,
+        "target_gain": 0.615231
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "converted": "she can scoot these things into three red bikes and we will go and meet her wednesday at the train station",
+        "source_errors": 0,
+        "converted_errors": 3,
+        "reference_words": 20,
+        "source_wer": 0.0,
+        "converted_wer": 0.15
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.23938,
+          "signal": 3.593562,
+          "background": 4.17803,
+          "overall": 3.357047
+        },
+        "converted": {
+          "p808": 3.936411,
+          "signal": 3.582177,
+          "background": 4.032669,
+          "overall": 3.270398
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.104204,
+          0.103197,
+          0.110152
+        ],
+        "median_inference_seconds": 0.104204,
+        "real_time_factor": 0.015168
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p243/p243_005_mic1.flac",
+        "target_bank": "p244",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p243_005_mic1--to--p244.wav",
+        "source_duration_seconds": 6.87,
+        "output_duration_seconds": 6.86,
+        "source_frames": 343,
+        "reference_frames": 3874,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.110152,
+        "wall_seconds": 0.178381,
+        "real_time_factor": 0.016034,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p244_001_mic1--to--p245",
+      "source": "wav48_silence_trimmed/p244/p244_001_mic1.flac",
+      "target_bank": "p245",
+      "target_references": [
+        "wav48_silence_trimmed/p245/p245_006_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_007_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p244_001_mic1--to--p245.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.089354,
+        "converted_to_target": 0.534759,
+        "converted_to_source": 0.192054,
+        "target_gain": 0.445405
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stello",
+        "source_errors": 0,
+        "converted_errors": 1,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.333333
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.333519,
+          "signal": 3.406412,
+          "background": 3.978921,
+          "overall": 3.066883
+        },
+        "converted": {
+          "p808": 3.578631,
+          "signal": 3.347271,
+          "background": 3.933789,
+          "overall": 3.010729
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.090604,
+          0.077223,
+          0.075894
+        ],
+        "median_inference_seconds": 0.077223,
+        "real_time_factor": 0.035892
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p244/p244_001_mic1.flac",
+        "target_bank": "p245",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p244_001_mic1--to--p245.wav",
+        "source_duration_seconds": 2.151562,
+        "output_duration_seconds": 2.14,
+        "source_frames": 107,
+        "reference_frames": 4877,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.075894,
+        "wall_seconds": 0.159511,
+        "real_time_factor": 0.035274,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p244_002_mic1--to--p245",
+      "source": "wav48_silence_trimmed/p244/p244_002_mic1.flac",
+      "target_bank": "p245",
+      "target_references": [
+        "wav48_silence_trimmed/p245/p245_006_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_007_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p244_002_mic1--to--p245.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.134452,
+        "converted_to_target": 0.62758,
+        "converted_to_source": 0.257894,
+        "target_gain": 0.493129
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.733653,
+          "signal": 3.547162,
+          "background": 4.023839,
+          "overall": 3.234854
+        },
+        "converted": {
+          "p808": 3.625904,
+          "signal": 3.633399,
+          "background": 4.113459,
+          "overall": 3.380993
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.078044,
+          0.076305,
+          0.081166
+        ],
+        "median_inference_seconds": 0.078044,
+        "real_time_factor": 0.02493
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p244/p244_002_mic1.flac",
+        "target_bank": "p245",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p244_002_mic1--to--p245.wav",
+        "source_duration_seconds": 3.1305,
+        "output_duration_seconds": 3.12,
+        "source_frames": 156,
+        "reference_frames": 4877,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.081166,
+        "wall_seconds": 0.173023,
+        "real_time_factor": 0.025928,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p244_003_mic1--to--p245",
+      "source": "wav48_silence_trimmed/p244/p244_003_mic1.flac",
+      "target_bank": "p245",
+      "target_references": [
+        "wav48_silence_trimmed/p245/p245_006_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_007_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p244_003_mic1--to--p245.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.031596,
+        "converted_to_target": 0.607607,
+        "converted_to_source": 0.150677,
+        "target_gain": 0.576011
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 fixed lumps of blue cheese and maybe a snack for a brother bob",
+        "converted": "6 experience a fresh snow peas 5 fixed loves of lee cheese and maybe a snack for a brother bob",
+        "source_errors": 5,
+        "converted_errors": 8,
+        "reference_words": 20,
+        "source_wer": 0.25,
+        "converted_wer": 0.4
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.944262,
+          "signal": 3.633919,
+          "background": 4.062328,
+          "overall": 3.341249
+        },
+        "converted": {
+          "p808": 4.086166,
+          "signal": 3.679244,
+          "background": 4.114271,
+          "overall": 3.429675
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.104216,
+          0.100497,
+          0.104695
+        ],
+        "median_inference_seconds": 0.104216,
+        "real_time_factor": 0.017046
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p244/p244_003_mic1.flac",
+        "target_bank": "p245",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p244_003_mic1--to--p245.wav",
+        "source_duration_seconds": 6.113688,
+        "output_duration_seconds": 6.1,
+        "source_frames": 305,
+        "reference_frames": 4877,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.104695,
+        "wall_seconds": 0.202324,
+        "real_time_factor": 0.017125,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p244_004_mic1--to--p245",
+      "source": "wav48_silence_trimmed/p244/p244_004_mic1.flac",
+      "target_bank": "p245",
+      "target_references": [
+        "wav48_silence_trimmed/p245/p245_006_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_007_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p244_004_mic1--to--p245.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.07104,
+        "converted_to_target": 0.643507,
+        "converted_to_source": 0.175745,
+        "target_gain": 0.572468
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toe frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy frog for the kids",
+        "source_errors": 1,
+        "converted_errors": 0,
+        "reference_words": 15,
+        "source_wer": 0.066667,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.351698,
+          "signal": 3.414857,
+          "background": 3.986267,
+          "overall": 3.117386
+        },
+        "converted": {
+          "p808": 4.067647,
+          "signal": 3.625115,
+          "background": 4.178678,
+          "overall": 3.411354
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.116756,
+          0.097169,
+          0.083286
+        ],
+        "median_inference_seconds": 0.097169,
+        "real_time_factor": 0.019609
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p244/p244_004_mic1.flac",
+        "target_bank": "p245",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p244_004_mic1--to--p245.wav",
+        "source_duration_seconds": 4.95525,
+        "output_duration_seconds": 4.94,
+        "source_frames": 247,
+        "reference_frames": 4877,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.083286,
+        "wall_seconds": 0.164147,
+        "real_time_factor": 0.016808,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p244_005_mic1--to--p245",
+      "source": "wav48_silence_trimmed/p244/p244_005_mic1.flac",
+      "target_bank": "p245",
+      "target_references": [
+        "wav48_silence_trimmed/p245/p245_006_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_007_mic1.flac",
+        "wav48_silence_trimmed/p245/p245_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p244_005_mic1--to--p245.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.107295,
+        "converted_to_target": 0.626841,
+        "converted_to_source": 0.212206,
+        "target_gain": 0.519546
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go meet her a wednesday at the train station",
+        "converted": "she can scoop these things into 3 rep bikes and we will go meet her wednesday at the train station",
+        "source_errors": 1,
+        "converted_errors": 3,
+        "reference_words": 20,
+        "source_wer": 0.05,
+        "converted_wer": 0.15
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.500589,
+          "signal": 3.610535,
+          "background": 4.116123,
+          "overall": 3.355256
+        },
+        "converted": {
+          "p808": 3.84652,
+          "signal": 3.610788,
+          "background": 4.149206,
+          "overall": 3.388769
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.099201,
+          0.09366,
+          0.097948
+        ],
+        "median_inference_seconds": 0.097948,
+        "real_time_factor": 0.016506
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p244/p244_005_mic1.flac",
+        "target_bank": "p245",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p244_005_mic1--to--p245.wav",
+        "source_duration_seconds": 5.934062,
+        "output_duration_seconds": 5.92,
+        "source_frames": 296,
+        "reference_frames": 4877,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.097948,
+        "wall_seconds": 0.171104,
+        "real_time_factor": 0.016506,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p245_001_mic1--to--p225",
+      "source": "wav48_silence_trimmed/p245/p245_001_mic1.flac",
+      "target_bank": "p225",
+      "target_references": [
+        "wav48_silence_trimmed/p225/p225_006_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_007_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p245_001_mic1--to--p225.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.183519,
+        "converted_to_target": 0.655053,
+        "converted_to_source": 0.218639,
+        "target_gain": 0.471534
+      },
+      "transcription": {
+        "ground_truth": "please call stella",
+        "source": "please call stella",
+        "converted": "please call stella",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 3,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.657019,
+          "signal": 3.592131,
+          "background": 4.060872,
+          "overall": 3.305702
+        },
+        "converted": {
+          "p808": 3.226608,
+          "signal": 3.582379,
+          "background": 4.119177,
+          "overall": 3.309467
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.059496,
+          0.059073,
+          0.059477
+        ],
+        "median_inference_seconds": 0.059477,
+        "real_time_factor": 0.028086
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p245/p245_001_mic1.flac",
+        "target_bank": "p225",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p245_001_mic1--to--p225.wav",
+        "source_duration_seconds": 2.117688,
+        "output_duration_seconds": 2.1,
+        "source_frames": 105,
+        "reference_frames": 4110,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.059477,
+        "wall_seconds": 0.130612,
+        "real_time_factor": 0.028086,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p245_002_mic1--to--p225",
+      "source": "wav48_silence_trimmed/p245/p245_002_mic1.flac",
+      "target_bank": "p225",
+      "target_references": [
+        "wav48_silence_trimmed/p225/p225_006_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_007_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p245_002_mic1--to--p225.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.149814,
+        "converted_to_target": 0.600755,
+        "converted_to_source": 0.244484,
+        "target_gain": 0.45094
+      },
+      "transcription": {
+        "ground_truth": "ask her to bring these things with her from the store",
+        "source": "ask her to bring these things with her from the store",
+        "converted": "ask her to bring these things with her from the store",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 11,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.079579,
+          "signal": 3.697074,
+          "background": 4.150614,
+          "overall": 3.458062
+        },
+        "converted": {
+          "p808": 3.502131,
+          "signal": 3.46497,
+          "background": 3.968213,
+          "overall": 3.13249
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.118452,
+          0.088077,
+          0.080546
+        ],
+        "median_inference_seconds": 0.088077,
+        "real_time_factor": 0.021883
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p245/p245_002_mic1.flac",
+        "target_bank": "p225",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p245_002_mic1--to--p225.wav",
+        "source_duration_seconds": 4.024938,
+        "output_duration_seconds": 4.0,
+        "source_frames": 200,
+        "reference_frames": 4110,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.080546,
+        "wall_seconds": 0.141575,
+        "real_time_factor": 0.020012,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p245_003_mic1--to--p225",
+      "source": "wav48_silence_trimmed/p245/p245_003_mic1.flac",
+      "target_bank": "p225",
+      "target_references": [
+        "wav48_silence_trimmed/p225/p225_006_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_007_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p245_003_mic1--to--p225.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.148997,
+        "converted_to_target": 0.688851,
+        "converted_to_source": 0.272754,
+        "target_gain": 0.539854
+      },
+      "transcription": {
+        "ground_truth": "six spoons of fresh snow peas five thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "converted": "6 spoons of fresh snow peas 5 thick slabs of blue cheese and maybe a snack for her brother bob",
+        "source_errors": 2,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.1,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.025072,
+          "signal": 3.66661,
+          "background": 4.151266,
+          "overall": 3.438826
+        },
+        "converted": {
+          "p808": 3.781021,
+          "signal": 3.37885,
+          "background": 3.887627,
+          "overall": 3.030471
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.141367,
+          0.131262,
+          0.138521
+        ],
+        "median_inference_seconds": 0.138521,
+        "real_time_factor": 0.015837
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p245/p245_003_mic1.flac",
+        "target_bank": "p225",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p245_003_mic1--to--p225.wav",
+        "source_duration_seconds": 8.7465,
+        "output_duration_seconds": 8.74,
+        "source_frames": 437,
+        "reference_frames": 4110,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.138521,
+        "wall_seconds": 0.216187,
+        "real_time_factor": 0.015837,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p245_004_mic1--to--p225",
+      "source": "wav48_silence_trimmed/p245/p245_004_mic1.flac",
+      "target_bank": "p225",
+      "target_references": [
+        "wav48_silence_trimmed/p225/p225_006_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_007_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p245_004_mic1--to--p225.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.13484,
+        "converted_to_target": 0.691885,
+        "converted_to_source": 0.189756,
+        "target_gain": 0.557044
+      },
+      "transcription": {
+        "ground_truth": "we also need a small plastic snake and a big toy frog for the kids",
+        "source": "we also need a small plastic snake and a big toy frog for the kids",
+        "converted": "we also need a small plastic snake and a big toy frog for the kids",
+        "source_errors": 0,
+        "converted_errors": 0,
+        "reference_words": 15,
+        "source_wer": 0.0,
+        "converted_wer": 0.0
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 3.954409,
+          "signal": 3.634973,
+          "background": 4.136637,
+          "overall": 3.399165
+        },
+        "converted": {
+          "p808": 3.706076,
+          "signal": 3.628054,
+          "background": 4.071888,
+          "overall": 3.343284
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.114126,
+          0.09425,
+          0.091012
+        ],
+        "median_inference_seconds": 0.09425,
+        "real_time_factor": 0.016211
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p245/p245_004_mic1.flac",
+        "target_bank": "p225",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p245_004_mic1--to--p225.wav",
+        "source_duration_seconds": 5.814,
+        "output_duration_seconds": 5.8,
+        "source_frames": 290,
+        "reference_frames": 4110,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.091012,
+        "wall_seconds": 0.175748,
+        "real_time_factor": 0.015654,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    },
+    {
+      "pair_id": "p245_005_mic1--to--p225",
+      "source": "wav48_silence_trimmed/p245/p245_005_mic1.flac",
+      "target_bank": "p225",
+      "target_references": [
+        "wav48_silence_trimmed/p225/p225_006_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_007_mic1.flac",
+        "wav48_silence_trimmed/p225/p225_008_mic1.flac"
+      ],
+      "output": "artifacts/audio/evaluation/vctk-0.92/p245_005_mic1--to--p225.wav",
+      "speaker_similarity": {
+        "source_to_target": 0.142695,
+        "converted_to_target": 0.738416,
+        "converted_to_source": 0.210835,
+        "target_gain": 0.59572
+      },
+      "transcription": {
+        "ground_truth": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "source": "she can scoop these things into three red bags and we will go meet her wednesday at the train station",
+        "converted": "she can scoop these things into three red bags and we will go measure wednesday at the train station",
+        "source_errors": 0,
+        "converted_errors": 2,
+        "reference_words": 20,
+        "source_wer": 0.0,
+        "converted_wer": 0.1
+      },
+      "dnsmos": {
+        "source": {
+          "p808": 4.11541,
+          "signal": 3.79553,
+          "background": 4.201182,
+          "overall": 3.594845
+        },
+        "converted": {
+          "p808": 3.918985,
+          "signal": 3.64115,
+          "background": 4.123292,
+          "overall": 3.392834
+        }
+      },
+      "timing": {
+        "runs": 3,
+        "inference_seconds": [
+          0.115223,
+          0.115508,
+          0.116318
+        ],
+        "median_inference_seconds": 0.115508,
+        "real_time_factor": 0.015846
+      },
+      "conversion": {
+        "source": "wav48_silence_trimmed/p245/p245_005_mic1.flac",
+        "target_bank": "p225",
+        "output": "artifacts/audio/evaluation/vctk-0.92/p245_005_mic1--to--p225.wav",
+        "source_duration_seconds": 7.28925,
+        "output_duration_seconds": 7.28,
+        "source_frames": 364,
+        "reference_frames": 4110,
+        "feature_dimension": 1024,
+        "neighbors": 4,
+        "metric": "cosine",
+        "inference_seconds": 0.116318,
+        "wall_seconds": 0.184756,
+        "real_time_factor": 0.015957,
+        "model_repository": "bshall/knn-vc:v0.1",
+        "wavlm_sha256": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f",
+        "vocoder_sha256": "f924c7632c6eaf99004386d62293e124419e33582573552a6ae976eb88ed2dd5",
+        "device": "cuda",
+        "torch_version": "2.6.0+cu124",
+        "python_version": "3.11.18"
+      }
+    }
+  ]
+}
